@@ -1,0 +1,118 @@
+/* CONTACT CTA */
+.cta-section {
+  padding: 7rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.cta-box {
+  position: relative;
+  padding: 5rem 4rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-box::before,
+.cta-box::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.cta-box::before {
+  width: 220px;
+  height: 220px;
+  top: -130px;
+  left: -100px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.cta-box::after {
+  width: 180px;
+  height: 180px;
+  bottom: -110px;
+  right: -80px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.cta-box .section-tag,
+.cta-box h2,
+.cta-box p,
+.cta-box .btn {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-box h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.2rem;
+    color: var(--accent-light);
+}
+
+.cta-box p {
+  max-width: 680px;
+  margin: 0 auto 2rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+html[lang="ta"] .cta-box h2 {
+  font-family: var(--font-tamil);
+  letter-spacing: 0;
+}
+
+.cta-section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 4rem 1rem;
+  }
+
+  .cta-box {
+    padding: 3rem 1.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .cta-box h2 {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .cta-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .cta-section {
+    padding: 3rem 0.75rem;
+  }
+
+  .cta-box {
+    padding: 2.5rem 1rem;
+  }
+
+  .cta-box h2 {
+    font-size: 1.8rem;
+    line-height: 1.25;
+  }
+
+  .cta-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+}

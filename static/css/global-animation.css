@@ -1,0 +1,153 @@
+/* ============================================================
+   GLOBAL ANIMATION — BLUR TO SHARP SCROLL REVEAL
+   Works across all pages: index, about, works, gallery, article, video
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Base reveal state — Blur to Sharp
+   ------------------------------------------------------------ */
+
+.reveal-left,
+.reveal-right,
+.reveal-up,
+.reveal-down,
+.reveal-fade,
+.reveal-blur,
+[data-scroll-blur] {
+    opacity: 0;
+    filter: blur(14px);
+    -webkit-filter: blur(14px);
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition:
+        opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+        -webkit-filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------
+   Starting positions
+   ------------------------------------------------------------ */
+
+.reveal-left {
+    transform: translate3d(-35px, 0, 0);
+}
+
+.reveal-right {
+    transform: translate3d(35px, 0, 0);
+}
+
+.reveal-up {
+    transform: translate3d(0, 32px, 0);
+}
+
+.reveal-down {
+    transform: translate3d(0, -32px, 0);
+}
+
+.reveal-fade {
+    transform: translate3d(0, 20px, 0);
+}
+
+.reveal-blur {
+    transform: scale(0.96);
+}
+
+/* ------------------------------------------------------------
+   Visible state — Razor Sharp & In Focus
+   ------------------------------------------------------------ */
+
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-up.is-visible,
+.reveal-down.is-visible,
+.reveal-fade.is-visible,
+.reveal-blur.is-visible,
+[data-scroll-blur].is-visible,
+.reveal-left.revealed,
+.reveal-right.revealed,
+.reveal-up.revealed,
+.reveal-down.revealed,
+.reveal-fade.revealed,
+.reveal-blur.revealed,
+[data-scroll-blur].revealed {
+    opacity: 1;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ------------------------------------------------------------
+   Animation delays
+   ------------------------------------------------------------ */
+
+.reveal-delay-1 {
+    transition-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.16s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.24s;
+}
+
+.reveal-delay-4 {
+    transition-delay: 0.32s;
+}
+
+.reveal-delay-5 {
+    transition-delay: 0.40s;
+}
+
+.reveal-delay-6 {
+    transition-delay: 0.48s;
+}
+
+.reveal-delay-media {
+    transition-delay: 0.25s;
+}
+
+/* ------------------------------------------------------------
+   Reduced motion accessibility
+   ------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-left,
+    .reveal-right,
+    .reveal-up,
+    .reveal-down,
+    .reveal-fade,
+    .reveal-blur,
+    [data-scroll-blur] {
+        opacity: 1 !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* ------------------------------------------------------------
+   SECTION TYPEWRITE STATE MANAGEMENT
+   Ensures typewritten elements are hidden until their exact turn
+   so text never flashes full content before typing begins.
+   ------------------------------------------------------------ */
+
+html.js-typewrite-ready [data-typewrite]:not(.typewrite-active):not(.typewrite-done) {
+    visibility: hidden !important;
+}
+
+html.js-typewrite-ready [data-typewrite].typewrite-active,
+html.js-typewrite-ready [data-typewrite].typewrite-done {
+    visibility: visible !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.js-typewrite-ready [data-typewrite] {
+        visibility: visible !important;
+    }
+}

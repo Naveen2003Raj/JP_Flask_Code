@@ -1,0 +1,776 @@
+/* ---------- Container ---------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4,
+.font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-tamil {
+  font-family: var(--font-tamil);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg,
+      #ffffff 40%,
+      #9c9b93 100%);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+
+.hero-section {
+  min-height: 100vh;
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+
+/* ---------- Hero Grid ---------- */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+
+/* ---------- Hero Content ---------- */
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* ---------- Hero Badge ---------- */
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-badge .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+
+/* ============================================================
+   HERO TITLE
+   ============================================================ */
+
+.hero-name-wrap {
+  width: 700px;
+  max-width: 100%;
+  min-height: calc(1.05em * 2);
+  font-size: clamp(2.75rem,
+      8vw,
+      8.75rem);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+}
+
+.hero-name {
+  font-size: inherit;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0;
+  width: 100%;
+}
+
+/* ============================================================
+   TAMIL HERO TITLE
+   ============================================================ */
+
+html[lang="ta"] .hero-name-wrap {
+  min-height: 150px;
+  font-size: 65px;
+}
+
+html[lang="ta"] .hero-name {
+  font-family: var(--font-tamil,
+      "Noto Sans Tamil",
+      sans-serif);
+
+  font-size: inherit;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+
+/* ============================================================
+   HERO SUBTITLE
+   ============================================================ */
+
+.hero-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  letter-spacing: 0.06em;
+}
+
+
+/* ============================================================
+   HERO QUOTE
+   ============================================================ */
+
+.hero-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-main);
+  border-left: 2px solid var(--accent);
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.02);
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+
+/* ============================================================
+   HERO INTRO
+   ============================================================ */
+
+.hero-intro {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+
+/* ============================================================
+   HERO CTA
+   ============================================================ */
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+
+/* ---------- Buttons Used by Hero ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+/* ---------- Primary Button ---------- */
+
+.btn-primary {
+  background: var(--accent-light);
+  color: #0a0a09;
+  font-weight: 600;
+  border-color: var(--accent-light);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+
+/* ---------- Secondary Button ---------- */
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-main);
+  border-color: var(--border);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #55554e;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   HERO MEDIA
+   ============================================================ */
+
+.hero-media {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+
+/* ============================================================
+   HERO PORTRAIT
+   ============================================================ */
+
+.hero-portrait-wrap {
+  position: relative;
+
+  /* Was width: 120vw — that's what caused the overflow. 120vw only
+     gets capped by max-width once it exceeds 420px, so on any phone
+     between roughly 350px and 420px wide, this box rendered up to
+     420px — wider than the screen itself, forcing a horizontal
+     scrollbar. width: 100% (relative to .hero-media, which is
+     already constrained by .container) never exceeds its parent. */
+  width: 100%;
+
+  height: 620px;
+
+  max-width: 420px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.8);
+
+  background: var(--bg-card);
+
+
+
+  transition:
+    filter 0.5s ease,
+    transform 0.5s ease;
+}
+
+
+
+.hero-portrait-wrap img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-portrait-wrap:hover img {
+  transform: scale(1.04);
+}
+
+
+/* ============================================================
+   HERO IMAGE CAROUSEL
+   ============================================================ */
+
+.hero-carousel {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: inherit;
+}
+
+.hero-carousel img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transform: scale(1.08);
+
+  transition:
+    opacity 0.8s ease,
+    transform 4s ease;
+}
+
+.hero-carousel img.active {
+  opacity: 1;
+
+  transform: scale(1);
+
+  z-index: 2;
+}
+
+
+/* ============================================================
+   HERO CAROUSEL DOTS
+   ============================================================ */
+
+.hero-carousel-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+}
+
+.hero-carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition:
+    width 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.hero-carousel-dots .dot.active {
+  width: 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.hero-carousel-dots .dot:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   Required because your HTML uses:
+   reveal-left
+   reveal-up
+   reveal-delay-1 ... 6
+   reveal-delay-media
+   ============================================================ */
+
+.reveal-left,
+.reveal-up {
+  opacity: 0;
+  filter: blur(12px);
+  -webkit-filter: blur(12px);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-left {
+  transform: translate3d(-28px, 0, 0);
+
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    -webkit-filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up {
+  transform: translate3d(0, 28px, 0);
+
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    -webkit-filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.is-visible,
+.reveal-up.is-visible {
+  opacity: 1;
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+  transform: translate3d(0, 0, 0);
+}
+
+
+/* ---------- Reveal Delays ---------- */
+
+.reveal-delay-1 {
+  transition-delay: 0s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.08s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.16s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.24s;
+}
+
+.reveal-delay-5 {
+  transition-delay: 0.32s;
+}
+
+.reveal-delay-6 {
+  transition-delay: 0.40s;
+}
+
+.reveal-delay-media {
+  transition-delay: 0.15s;
+}
+
+/* Hero reveal delays when sequenced dynamically by hero-typing.js */
+#hero .reveal-left,
+#hero .reveal-right,
+#hero .reveal-up,
+#hero .reveal-down,
+#hero .reveal-fade {
+  transition-delay: 0s !important;
+}
+
+/* ============================================================
+   HERO TYPING BLINKING CURSOR
+   ============================================================ */
+
+.hero-cursor {
+  display: inline-block;
+  width: clamp(3px, 0.04em, 5px);
+  height: 0.82em;
+  background-color: var(--accent, #efeee7);
+  margin-left: 6px;
+  vertical-align: -0.05em;
+  -webkit-text-fill-color: initial;
+  border-radius: 1px;
+  animation: heroCursorBlink 0.9s step-start infinite;
+}
+
+@keyframes heroCursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+
+  outline-offset: 3px;
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+
+@media (max-width: 1024px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
+  .hero-media {
+    order: -1;
+  }
+
+  .hero-section {
+    padding-top: 7rem;
+
+    min-height: auto;
+  }
+
+  .hero-portrait-wrap {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .hero-name-wrap[data-lang="ta"] {
+    font-size: 16px;
+
+    min-height: 140px;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  .hero-section {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-grid {
+    gap: 2.5rem;
+  }
+
+  .hero-intro {
+    font-size: 0.98rem;
+  }
+
+  .hero-cta {
+    width: 100%;
+  }
+
+  .hero-media {
+    width: 100%;
+  }
+
+  /* This block was missing its width/max-width override — that's the
+     actual cause of the overflow. Restoring it so the portrait can
+     never render wider than the phone it's on. */
+  .hero-portrait-wrap {
+    width: 100%;
+    max-width: 360px;
+    height: 520px;
+    margin: 0 auto;
+  }
+
+  .hero-name-wrap {
+    width: 100%;
+
+    font-size: clamp(2.5rem,
+        12vw,
+        5rem);
+
+    margin-left: 5px;
+  }
+
+
+  html[lang="ta"] .hero-name-wrap {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+    min-height: 120px;
+  }
+
+
+  /* ---------- Tamil Mobile Hero Title ---------- */
+
+  .hero-name-wrap[data-lang="ta"] {
+    font-size: clamp(2rem,
+        9vw,
+        3.2rem);
+
+    min-height: 120px;
+  }
+
+  .hero-name-wrap[data-lang="ta"] .hero-name {
+    line-height: 1.3;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-section {
+    padding-top: 5.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-grid {
+    gap: 2rem;
+  }
+
+  .hero-name-wrap {
+    width: 100%;
+
+    font-size: clamp(2.3rem,
+        13vw,
+        4rem);
+  }
+
+
+  html[lang="ta"] .hero-name-wrap {
+    font-size: clamp(1.9rem, 9vw, 3rem);
+    min-height: 105px;
+  }
+
+
+
+  /* ---------- Tamil Small Mobile Hero Title ---------- */
+
+  .hero-name-wrap[data-lang="ta"] {
+    font-size: clamp(1.9rem,
+        9vw,
+        3rem);
+
+    min-height: 105px;
+  }
+
+  .hero-name-wrap[data-lang="ta"] .hero-name {
+    line-height: 1.3;
+  }
+
+  .hero-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .hero-quote {
+    font-size: 1rem;
+  }
+
+  .hero-intro {
+    font-size: 0.95rem;
+
+    line-height: 1.65;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .hero-portrait-wrap {
+    height: 460px;
+
+    border-radius: 10px;
+  }
+
+  .hero-carousel-dots {
+    bottom: 14px;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-carousel img {
+    transition: opacity 0.01ms linear;
+
+    transform: none;
+  }
+
+  .hero-portrait-wrap,
+  .hero-portrait-wrap img {
+    transition: none;
+  }
+
+  .reveal-left,
+  .reveal-up {
+    opacity: 1;
+    filter: none;
+    -webkit-filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .btn {
+    transition: none;
+  }
+}
+
+
+
+html[lang="ta"] .hero-name[data-en] {
+  font-size: 0.9rem;
+}

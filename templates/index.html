@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeeva Ponnuchamy — Author, Storyteller & Screenwriter</title>
+  <meta name="description" content="Official website of Jeeva Ponnuchamy — Author, Storyteller, Screenwriter, and Film Editor.">
+
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/global-animation.css">
+  <link rel="stylesheet" href="/static/css/placeholder.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+Tamil:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    document.documentElement.classList.add("js-typewrite-ready");
+    document.querySelectorAll(".jp-placeholder-wrap").forEach(wrapper => {
+      const image = wrapper.querySelector("img");
+      if (!image) return;
+      image.addEventListener("load", () => {
+        wrapper.classList.add("loaded");
+      });
+    });
+  </script>
+</head>
+<body class="preloading">
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-letters">
+      <span class="pl-j"><img src="/static/img/J.png" alt="J"></span>
+      <span class="pl-p"><img src="/static/img/P.png" alt="P"></span>
+    </div>
+    <div class="pl-curtain"></div>
+  </div>
+
+  <!-- Ambient Glow Overlay -->
+  <div class="bg-glow"></div>
+
+    {% include "partials/navbar.html" %}
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+
+      <!-- HERO CONTENT -->
+      <div class="hero-content">
+
+        <div class="hero-badge reveal-left reveal-delay-1">
+          <span class="dot"></span>
+          <span id="heroTag"></span>
+        </div>
+
+        <div class="hero-name-wrap" id="heroNameWrap">
+          <h1 class="hero-name font-serif text-gradient typing-words reveal-left reveal-delay-2" id="heroName" data-key="name"></h1>
+        </div>
+
+        <div class="hero-subtitle reveal-left reveal-delay-3">
+          <span id="typingSubtitle" style="color: var(--accent);" data-key="roles"></span>
+        </div>
+
+        <blockquote class="hero-quote reveal-left reveal-delay-4" data-key="quote"></blockquote>
+
+        <p class="hero-intro reveal-left reveal-delay-5" data-key="description"></p>
+
+        <div class="hero-cta reveal-left reveal-delay-6">
+          <a href="/works" class="btn btn-primary">
+            <span data-en="Explore My Works →" data-ta="படைப்புகளைக் காண →">Explore My Works →</span>
+          </a>
+
+             <a href="/#footer" class="btn btn-primary">
+              <span data-en="Get in Touch" data-ta="தொடர்பு கொள்ள">Get in Touch</span>
+            </a>
+
+        </div>
+
+      </div>
+
+      <!-- HERO IMAGE / CAROUSEL -->
+      <div class="hero-media reveal-up reveal-delay-media">
+        <div class="hero-portrait-wrap">
+
+          <div class="hero-carousel" id="heroCarousel">
+            <img class="active" src="/static/img/newPotrait.jpg" alt="Portrait 1">
+            <img src="/static/img/potrait1.jpg" alt="Portrait 2">
+            <img src="/static/img/potrait2.jpg" alt="Portrait 3">
+          </div>
+
+          <div class="hero-carousel-dots" id="heroDots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+       <!-- SECTION 2 — FEATURED WORKS -->
+  <section class="featured-section" id="featured">
+    <div class="container">
+
+      <!-- SECTION HEADER -->
+      <div class="featured-header reveal-left" data-typewrite-group>
+        <span class="section-tag" data-typewrite data-en="Selected Works" data-ta="தேர்ந்தெடுக்கப்பட்ட படைப்புகள்">Selected Works</span>
+        <h2 class="section-heading" data-typewrite data-en="Featured Works" data-ta="சிறப்பு படைப்புகள்">Featured Works</h2>
+        <p class="section-desc" data-typewrite
+           data-en="Handpicked books and literary works showcasing craft, emotion, and storytelling."
+           data-ta="கைவினை, உணர்வு மற்றும் கதைசொல்லலை வெளிப்படுத்தும் தேர்ந்தெடுக்கப்பட்ட புத்தகங்கள் & இலக்கிய படைப்புகள்.">
+          Handpicked books and literary works showcasing craft, emotion, and storytelling.
+        </p>
+      </div>
+
+      <!-- FEATURED WORKS — 2 COLUMNS -->
+      <div class="works-grid featured-works-grid">
+
+        <!-- FEATURED ARTICLE 1 -->
+        <article class="work-card reveal-left reveal-delay-1" data-typewrite-group>
+          <div class="work-cover"
+               style="display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg, var(--bg-card) 0%, var(--bg-dark) 100%);">
+            <span style="font-size:2.8rem; opacity:0.85;">🎬</span>
+          </div>
+          <div class="work-body">
+            <div class="work-header" data-typewrite>
+              <span class="work-genre" data-en="Cinema Essay" data-ta="சினிமா கட்டுரை">Cinema Essay</span>
+              <span class="work-year">Issue 47</span>
+            </div>
+            <h3 class="work-title font-tamil" data-typewrite>நாடக அரங்கிலும் படத்தொகுப்பு கலை நிகழும்</h3>
+            <p class="work-desc font-tamil" data-typewrite>நாடகங்களிலும் சினிமாவில் படத்தொகுப்புக் கலைக்கான அடிப்படைக் கூறுகள் உள்ளன என்று சொல்லும் ஆராய்ச்சிக் கட்டுரை</p>
+            <div class="work-footer" data-typewrite>
+              <a class="work-link" href="/article?id=article-1">
+                <span data-en="View Article →" data-ta="கட்டுரையைக் காண →">View Article →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- FEATURED ARTICLE 2 -->
+        <article class="work-card reveal-right reveal-delay-2" data-typewrite-group>
+          <div class="work-cover"
+               style="display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg, var(--bg-card) 0%, var(--bg-dark) 100%);">
+            <span style="font-size:2.8rem; opacity:0.85;">🎬</span>
+          </div>
+          <div class="work-body">
+            <div class="work-header" data-typewrite>
+              <span class="work-genre" data-en="Cinema Essay" data-ta="சினிமா கட்டுரை">Cinema Essay</span>
+            </div>
+            <h3 class="work-title font-tamil" data-typewrite>படம் பார்ப்பதும் ஒரு கலையே</h3>
+            <p class="work-desc font-tamil" data-typewrite>ட்ரை ஆங்கிள் படம் குறித்த கட்டுரை</p>
+            <div class="work-footer" data-typewrite>
+              <a class="work-link" href="/article?id=article-3">
+                <span data-en="View Article →" data-ta="கட்டுரையைக் காண →">View Article →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+       <!-- SECTION 2.5 — LATEST ARTICLES -->
+  <section class="featured-section" id="articles">
+    <div class="container">
+
+      <!-- SECTION HEADER -->
+      <div class="latest-articles-header reveal-left">
+        <div data-typewrite-group>
+          <span class="section-tag" data-typewrite data-en="Cinema Essays" data-ta="சினிமா கட்டுரைகள்">Cinema Essays</span>
+          <h2 class="section-heading" style="margin-bottom:0;" data-typewrite data-en="Latest Articles" data-ta="சமீபத்திய கட்டுரைகள்">Latest Articles</h2>
+        </div>
+        <div class="reveal-right reveal-delay-1" data-typewrite-group>
+          <a href="/works?category=articles" class="btn btn-secondary">
+            <span data-typewrite data-en="View All Articles →" data-ta="அனைத்து கட்டுரைகளையும் காண →">View All Articles →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <p class="section-desc reveal-left reveal-delay-1" data-typewrite-group>
+        <span data-typewrite
+              data-en="Published film criticism and cinema essays exploring screenplay craft, editing, and world cinema."
+              data-ta="திரைக்கதை கைவினை, படத்தொகுப்பு மற்றும் உலக சினிமா குறித்து வெளியிடப்பட்ட திரைப்பட விமர்சனங்களும் கட்டுரைகளும்.">
+          Published film criticism and cinema essays exploring screenplay craft, editing, and world cinema.
+        </span>
+      </p>
+
+      <!-- 4 COLUMN GRID -->
+      
+        <div class="articles-home-grid latest-articles-grid" id="latestArticlesGrid"></div>
+
+        <!-- ARTICLE 1 -->
+        <article class="article-home-card reveal-left reveal-delay-1" data-typewrite-group>
+          <div class="article-home-cover">
+            <span class="article-home-cover-icon">🎬</span>
+          </div>
+          <div class="article-home-body">
+            <div class="article-home-meta" data-typewrite>
+              <span class="article-home-badge" data-en="Cinema Essay" data-ta="சினிமா கட்டுரை">Cinema Essay</span>
+              <span class="article-home-date">December – January 2015 (Issue - 47)</span>
+            </div>
+            <h3 class="article-home-title font-tamil" data-typewrite>நாடக அரங்கிலும் படத்தொகுப்பு கலை நிகழும்</h3>
+            <p class="article-home-desc font-tamil" data-typewrite>நாடகங்களிலும் சினிமாவில் படத்தொகுப்புக் கலைக்கான அடிப்படைக் கூறுகள் உள்ளன என்று சொல்லும் ஆராய்ச்சிக் கட்டுரை</p>
+            <div class="article-home-footer" data-typewrite>
+              <a class="work-link" href="/article?id=article-1">
+                <span data-en="View Article →" data-ta="கட்டுரையைக் காண →">View Article →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ARTICLE 2 -->
+        <article class="article-home-card reveal-right reveal-delay-2" data-typewrite-group>
+          <div class="article-home-cover">
+            <span class="article-home-cover-icon">🎬</span>
+          </div>
+          <div class="article-home-body">
+            <div class="article-home-meta" data-typewrite>
+              <span class="article-home-badge" data-en="Cinema Essay" data-ta="சினிமா கட்டுரை">Cinema Essay</span>
+              <span class="article-home-date" data-en="Cinema Essay" data-ta="சினிமா கட்டுரை">Cinema Essay</span>
+            </div>
+            <h3 class="article-home-title font-tamil" data-typewrite>படம் பார்ப்பதும் ஒரு கலையே</h3>
+            <p class="article-home-desc font-tamil" data-typewrite>ட்ரை ஆங்கிள் படம் குறித்த கட்டுரை</p>
+            <div class="article-home-footer" data-typewrite>
+              <a class="work-link" href="/article?id=article-3">
+                <span data-en="View Article →" data-ta="கட்டுரையைக் காண →">View Article →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ARTICLE 3 -->
+        <article class="article-home-card reveal-left reveal-delay-3" data-typewrite-group>
+          <div class="article-home-cover">
+            <span class="article-home-cover-icon">🎬</span>
+          </div>
+          <div class="article-home-body">
+            <div class="article-home-meta" data-typewrite>
+              <span class="article-home-badge" data-en="Cinema Essay" data-ta="சினிமா கட்டுரை">Cinema Essay</span>
+              <span class="article-home-date" data-en="Cinema Essay" data-ta="சினிமா கட்டுரை">Cinema Essay</span>
+            </div>
+            <h3 class="article-home-title font-tamil" data-typewrite>கோவா உலகத்திரைப்பட விழா</h3>
+            <p class="article-home-desc font-tamil" data-typewrite>கோவா உலகத்திரைப்பட விழா பற்றிய கட்டுரை</p>
+            <div class="article-home-footer" data-typewrite>
+              <a class="work-link" href="/article?id=article-4">
+                <span data-en="View Article →" data-ta="கட்டுரையைக் காண →">View Article →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ARTICLE 4 -->
+        <article class="article-home-card reveal-right reveal-delay-4" data-typewrite-group>
+          <div class="article-home-cover">
+            <span class="article-home-cover-icon">🎬</span>
+          </div>
+          <div class="article-home-body">
+            <div class="article-home-meta" data-typewrite>
+              <span class="article-home-badge" data-en="Cinema Essay" data-ta="சினிமா கட்டுரை">Cinema Essay</span>
+              <!-- FIXED: original markup had an unclosed attribute/tag here
+                   (the data-ta value ran into the closing span tag with no
+                   closing quote). Restored to match the pattern used by the
+                   other article cards. -->
+              <span class="article-home-date" data-en="Cinema Essay" data-ta="சினிமா கட்டுரை">Cinema Essay</span>
+            </div>
+            <h3 class="article-home-title font-tamil" data-typewrite>நாடக அரங்கிலும் படத்தொகுப்பு கலை நிகழும்</h3>
+            <p class="article-home-desc font-tamil" data-typewrite>நாடகங்களிலும் சினிமாவில் படத்தொகுப்புக் கலைக்கான அடிப்படைக் கூறுகள் உள்ளன என்று சொல்லும் ஆராய்ச்சிக் கட்டுரை</p>
+            <div class="article-home-footer" data-typewrite>
+              <a class="work-link" href="/article?id=article-1">
+                <span data-en="View Article →" data-ta="கட்டுரையைக் காண →">View Article →</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION
+       ============================================================ -->
+  <section class="about-section" id="about" data-typewrite-group>
+    <div class="container about-grid">
+
+      <!-- ABOUT CAROUSEL -->
+      <div class="about-media reveal-up reveal-delay-media">
+        <div class="about-portrait-wrap">
+          <div class="about-carousel" id="aboutCarousel">
+            <img class="active" src="/static/img/potrait2.jpg" alt="Portrait 1">
+            <img src="/static/img/newPotrait.jpg" alt="Portrait 2">
+            <img src="/static/img/potrait1.jpg" alt="Portrait 3">
+          </div>
+          <div class="about-carousel-dots" id="aboutDots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT CONTENT -->
+      <div class="about-content">
+        <span class="section-tag reveal-right reveal-delay-1" data-typewrite data-key="Abouttag"></span>
+        <h2 class="section-heading reveal-right reveal-delay-2" data-typewrite data-key="title"></h2>
+        <p class="reveal-right reveal-delay-3" data-typewrite data-key="paragraph1"></p>
+        <p class="reveal-right reveal-delay-4" data-typewrite data-key="paragraph2"></p>
+        <p class="reveal-right reveal-delay-5" data-typewrite data-key="paragraph3"></p>
+        <div style="margin-top: 2rem;" class="reveal-right reveal-delay-6">
+          <a href="/about" class="btn btn-primary">
+            <span data-en="Read Full Biography →" data-ta="முழு சுயசரிதையைக் காண →">Read Full Biography →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — WRITING JOURNEY
+       ============================================================ -->
+  <section class="journey-section" id="journey">
+    <div class="container">
+
+      <!-- JOURNEY HEADER -->
+      <div class="journey-header reveal-fade" data-typewrite-group data-i18n-section="journey.header">
+        <span class="section-tag reveal-left" data-typewrite data-key="tag"></span>
+        <h2 class="section-heading reveal-left" data-typewrite data-key="title"></h2>
+        <p class="section-desc reveal-left" data-typewrite data-key="desc"></p>
+      </div>
+
+      <!-- JOURNEY MILESTONES -->
+      <div class="timeline">
+        <div class="timeline-track">
+
+          <!-- 2009 -->
+          <div class="timeline-node reveal-left reveal-delay-1" data-typewrite-group data-i18n-section="journey.nodes.node1">
+            <div class="timeline-year" data-typewrite data-key="year"></div>
+            <h4 data-typewrite data-key="title"></h4>
+            <p data-typewrite data-key="desc"></p>
+          </div>
+
+          <!-- 2012 -->
+          <div class="timeline-node reveal-right reveal-delay-2" data-typewrite-group data-i18n-section="journey.nodes.node2">
+            <div class="timeline-year" data-typewrite data-key="year"></div>
+            <h4 data-typewrite data-key="title"></h4>
+            <p data-typewrite data-key="desc"></p>
+          </div>
+
+          <!-- 2016 -->
+          <div class="timeline-node reveal-left reveal-delay-3" data-typewrite-group data-i18n-section="journey.nodes.node3">
+            <div class="timeline-year" data-typewrite data-key="year"></div>
+            <h4 data-typewrite data-key="title"></h4>
+            <p data-typewrite data-key="desc"></p>
+          </div>
+
+          <!-- 2018 -->
+          <div class="timeline-node reveal-right reveal-delay-4" data-typewrite-group data-i18n-section="journey.nodes.node4">
+            <div class="timeline-year" data-typewrite data-key="year"></div>
+            <h4 data-typewrite data-key="title"></h4>
+            <p data-typewrite data-key="desc"></p>
+          </div>
+
+          <!-- 2020 -->
+          <div class="timeline-node reveal-left reveal-delay-5" data-typewrite-group data-i18n-section="journey.nodes.node5">
+            <div class="timeline-year" data-typewrite data-key="year"></div>
+            <h4 data-typewrite data-key="title"></h4>
+            <p data-typewrite data-key="desc"></p>
+          </div>
+
+          <!-- 2023 -->
+          <div class="timeline-node reveal-right reveal-delay-6" data-typewrite-group data-i18n-section="journey.nodes.node6">
+            <div class="timeline-year" data-typewrite data-key="year"></div>
+            <h4 data-typewrite data-key="title"></h4>
+            <p data-typewrite data-key="desc"></p>
+          </div>
+
+          <!-- TODAY -->
+          <div class="timeline-node reveal-left" data-typewrite-group data-i18n-section="journey.nodes.node7">
+            <div class="timeline-year" data-typewrite data-key="year"></div>
+            <h4 data-typewrite data-key="title"></h4>
+            <p data-typewrite data-key="desc"></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — EXPLORE MY WORKS / CATEGORIES
+       ============================================================ -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+
+      <!-- CATEGORY HEADER -->
+      <div class="categories-header reveal-left" data-typewrite-group data-i18n-section="categories.header">
+        <span class="section-tag" data-typewrite data-key="tag"></span>
+        <h2 class="section-heading" data-typewrite data-key="title"></h2>
+        <p class="section-desc" data-typewrite data-key="desc"></p>
+
+        <!-- CATEGORY TABS -->
+        <div class="category-tabs" id="categoryTabs">
+          <button class="tab-btn active" type="button" data-filter="photography" data-initial="true">
+            <span data-category-key="photography"></span>
+          </button>
+          <button class="tab-btn" type="button" data-filter="videography" data-initial="true">
+            <span data-category-key="videography"></span>
+          </button>
+          <button class="tab-btn" type="button" data-filter="scriptwriter" data-initial="true">
+            <span data-category-key="scriptwriter"></span>
+          </button>
+          <button class="tab-btn view-all-btn" type="button" data-filter="all">
+            <span data-category-key="viewAll"></span>
+          </button>
+
+          <!-- HIDDEN UNTIL VIEW ALL -->
+          <button class="tab-btn additional-category" type="button" data-filter="judge">
+            <span data-category-key="judge"></span>
+          </button>
+          <button class="tab-btn additional-category" type="button" data-filter="guest-lecture">
+            <span data-category-key="guestLecture"></span>
+          </button>
+          <button class="tab-btn additional-category" type="button" data-filter="dialogue-writer">
+            <span data-category-key="dialogueWriter"></span>
+          </button>
+          <button class="tab-btn additional-category" type="button" data-filter="books">
+            <span data-category-key="books"></span>
+          </button>
+          <button class="tab-btn additional-category" type="button" data-filter="stories">
+            <span data-category-key="stories"></span>
+          </button>
+          <button class="tab-btn additional-category" type="button" data-filter="articles">
+            <span data-category-key="articles"></span>
+          </button>
+          <button class="tab-btn additional-category" type="button" data-filter="poems">
+            <span data-category-key="poems"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CATEGORY GRID -->
+      <div class="category-grid">
+
+        <!-- PHOTOGRAPHY -->
+        <div class="category-card reveal-left reveal-delay-1" data-category="photography" data-initial="true" data-typewrite-group data-i18n-section="categories.photography">
+          <div class="cat-icon">📷</div>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="cat-count" data-typewrite data-key="count"></span>
+        </div>
+
+        <!-- VIDEOGRAPHY -->
+        <div class="category-card reveal-left reveal-delay-2" data-category="videography" data-initial="true" data-typewrite-group data-i18n-section="categories.videography">
+          <div class="cat-icon">🎥</div>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="cat-count" data-typewrite data-key="count"></span>
+        </div>
+
+        <!-- SCRIPTWRITER -->
+        <div class="category-card reveal-left reveal-delay-3" data-category="scriptwriter" data-initial="true" data-typewrite-group data-i18n-section="categories.scriptwriter">
+          <div class="cat-icon">📜</div>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="cat-count" data-typewrite data-key="count"></span>
+        </div>
+
+        <!-- JUDGE -->
+        <div class="category-card reveal-left reveal-delay-4 additional-category-card" data-category="judge" data-typewrite-group data-i18n-section="categories.judge">
+          <div class="cat-icon">⚖</div>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="cat-count" data-typewrite data-key="count"></span>
+        </div>
+
+        <!-- GUEST LECTURE -->
+        <div class="category-card reveal-left reveal-delay-5 additional-category-card" data-category="guest-lecture" data-typewrite-group data-i18n-section="categories.guestLecture">
+          <div class="cat-icon">🎙</div>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="cat-count" data-typewrite data-key="count"></span>
+        </div>
+
+        <!-- DIALOGUE WRITER -->
+        <div class="category-card reveal-left reveal-delay-6 additional-category-card" data-category="dialogue-writer" data-typewrite-group data-i18n-section="categories.dialogueWriter">
+          <div class="cat-icon">💬</div>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="cat-count" data-typewrite data-key="count"></span>
+        </div>
+
+        <!-- BOOKS -->
+        <div class="category-card reveal-left reveal-delay-1 additional-category-card" data-category="books" data-typewrite-group data-i18n-section="categories.books">
+          <div class="cat-icon">📚</div>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="cat-count" data-typewrite data-key="count"></span>
+          <a href="/#contact" class="enquire-btn" data-typewrite data-key="enquire"></a>
+        </div>
+
+        <!-- SHORT STORIES -->
+        <div class="category-card reveal-left reveal-delay-2 additional-category-card" data-category="stories" data-typewrite-group data-i18n-section="categories.stories">
+          <div class="cat-icon">📖</div>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="cat-count" data-typewrite data-key="count"></span>
+        </div>
+
+        <!-- ARTICLE 1 -->
+        <div class="category-card reveal-left reveal-delay-3 additional-category-card" data-category="articles" data-typewrite-group data-i18n-section="categories.articles.article1">
+          <div class="cat-icon">🎬</div>
+          <h3 class="font-tamil" data-typewrite data-key="title"></h3>
+          <p class="font-tamil" data-typewrite data-key="desc"></p>
+          <a class="cat-count" href="/article?id=article-1" data-typewrite data-key="view"></a>
+        </div>
+
+        <!-- ARTICLE 2 -->
+        <div class="category-card reveal-left reveal-delay-4 additional-category-card" data-category="articles" data-typewrite-group data-i18n-section="categories.articles.article2">
+          <div class="cat-icon">🎬</div>
+          <h3 class="font-tamil" data-typewrite data-key="title"></h3>
+          <p class="font-tamil" data-typewrite data-key="desc"></p>
+          <a class="cat-count" href="/article?id=article-2" data-typewrite data-key="view"></a>
+        </div>
+
+        <!-- ARTICLE 3 -->
+        <div class="category-card reveal-left reveal-delay-5 additional-category-card" data-category="articles" data-typewrite-group data-i18n-section="categories.articles.article3">
+          <div class="cat-icon">🎬</div>
+          <h3 class="font-tamil" data-typewrite data-key="title"></h3>
+          <p class="font-tamil" data-typewrite data-key="desc"></p>
+          <a class="cat-count" href="/article?id=article-3" data-typewrite data-key="view"></a>
+        </div>
+
+        <!-- ARTICLE 4 -->
+        <div class="category-card reveal-left reveal-delay-6 additional-category-card" data-category="articles" data-typewrite-group data-i18n-section="categories.articles.article4">
+          <div class="cat-icon">🎬</div>
+          <h3 class="font-tamil" data-typewrite data-key="title"></h3>
+          <p class="font-tamil" data-typewrite data-key="desc"></p>
+          <a class="cat-count" href="/article?id=article-4" data-typewrite data-key="view"></a>
+        </div>
+
+        <!-- ARTICLE 5 -->
+        <div class="category-card reveal-left reveal-delay-1 additional-category-card" data-category="articles" data-typewrite-group data-i18n-section="categories.articles.article5">
+          <div class="cat-icon">🎬</div>
+          <h3 class="font-tamil" data-typewrite data-key="title"></h3>
+          <p class="font-tamil" data-typewrite data-key="desc"></p>
+          <a class="cat-count" href="/article?id=article-5" data-typewrite data-key="view"></a>
+        </div>
+
+        <!-- ARTICLE 7 -->
+        <div class="category-card reveal-left reveal-delay-2 additional-category-card" data-category="articles" data-typewrite-group data-i18n-section="categories.articles.article7">
+          <div class="cat-icon">🎬</div>
+          <h3 class="font-tamil" data-typewrite data-key="title"></h3>
+          <p class="font-tamil" data-typewrite data-key="desc"></p>
+          <a class="cat-count" href="/article?id=article-7" data-typewrite data-key="view"></a>
+        </div>
+
+        <!-- ARTICLE 8 -->
+        <div class="category-card reveal-left reveal-delay-3 additional-category-card" data-category="articles" data-typewrite-group data-i18n-section="categories.articles.article8">
+          <div class="cat-icon">🎬</div>
+          <h3 class="font-tamil" data-typewrite data-key="title"></h3>
+          <p class="font-tamil" data-typewrite data-key="desc"></p>
+          <a class="cat-count" href="/article?id=article-8" data-typewrite data-key="view"></a>
+        </div>
+
+        <!-- ARTICLE 9 -->
+        <div class="category-card reveal-left reveal-delay-4 additional-category-card" data-category="articles" data-typewrite-group data-i18n-section="categories.articles.article9">
+          <div class="cat-icon">🎬</div>
+          <h3 class="font-tamil" data-typewrite data-key="title"></h3>
+          <p class="font-tamil" data-typewrite data-key="desc"></p>
+          <a class="cat-count" href="/article?id=article-9" data-typewrite data-key="view"></a>
+        </div>
+
+        <!-- POEMS -->
+        <div class="category-card reveal-left reveal-delay-5 additional-category-card" data-category="poems" data-typewrite-group data-i18n-section="categories.poems">
+          <div class="cat-icon">✍️</div>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="cat-count" data-typewrite data-key="count"></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ACHIEVEMENTS SECTION
+       ============================================================ -->
+  <section class="achievements-section" id="achievements">
+    <div class="container">
+
+      <!-- ACHIEVEMENTS HEADER -->
+      <div class="achievements-header reveal-left" data-typewrite-group data-i18n-section="achievements" style="text-align: center;">
+        <span class="section-tag" data-typewrite data-key="tag"></span>
+        <h2 class="section-heading" data-typewrite data-key="title"></h2>
+        <p class="section-desc" style="margin: 0 auto;" data-typewrite data-key="desc"></p>
+      </div>
+
+      <!-- ACHIEVEMENT STATS -->
+      <div class="stats-grid">
+
+        <div class="stat-card reveal-left reveal-delay-1" data-typewrite-group data-i18n-section="achievements">
+          <div class="stat-number" data-target="20" data-suffix="+">0</div>
+          <div class="stat-label" data-typewrite data-key="publishedWorks"></div>
+        </div>
+
+        <div class="stat-card reveal-left reveal-delay-2" data-typewrite-group data-i18n-section="achievements">
+          <div class="stat-number" data-target="15" data-suffix="+">0</div>
+          <div class="stat-label" data-typewrite data-key="yearsWriting"></div>
+        </div>
+
+        <div class="stat-card reveal-left reveal-delay-3" data-typewrite-group data-i18n-section="achievements">
+          <div class="stat-number" data-target="10" data-suffix="+">0</div>
+          <div class="stat-label" data-typewrite data-key="awardsHonors"></div>
+        </div>
+
+        <div class="stat-card reveal-left reveal-delay-4" data-typewrite-group data-i18n-section="achievements">
+          <div class="stat-number" data-target="5000" data-suffix="+">0</div>
+          <div class="stat-label" data-typewrite data-key="readersStudents"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS SECTION
+       ============================================================ -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+
+      <!-- HEADER -->
+      <div class="testimonials-header reveal-left" data-typewrite-group data-i18n-section="testimonials">
+        <span class="section-tag" data-typewrite data-key="tag"></span>
+        <h2 class="section-heading" data-typewrite data-key="title"></h2>
+        <p class="section-desc" data-typewrite data-key="desc"></p>
+      </div>
+
+      <!-- CAROUSEL WRAPPER -->
+      <div class="testimonial-carousel-wrapper">
+
+        <button type="button" class="testimonial-nav testimonial-prev" id="testimonialPrev" aria-label="Previous testimonial">‹</button>
+
+        <div class="testimonial-carousel">
+
+          <!-- 1 -->
+          <article class="testimonial-card" data-testimonial="1" data-typewrite-group data-i18n-section="testimonials.review1">
+            <div class="testimonial-top">
+              <img src="https://i.pravatar.cc/100?img=12" alt="" class="testimonial-avatar">
+              <div class="testimonial-person">
+                <h3 class="author-name" data-typewrite data-key="name"></h3>
+                <span class="author-role" data-typewrite data-key="role"></span>
+              </div>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="quote-text" data-typewrite data-key="short"></p>
+            <button type="button" class="testimonial-details-btn" onclick="openTestimonialModal(1)" data-typewrite data-key="viewDetails"></button>
+          </article>
+
+          <!-- 2 -->
+          <article class="testimonial-card" data-testimonial="2" data-typewrite-group data-i18n-section="testimonials.review2">
+            <div class="testimonial-top">
+              <img src="https://i.pravatar.cc/100?img=11" alt="" class="testimonial-avatar">
+              <div class="testimonial-person">
+                <h3 class="author-name" data-typewrite data-key="name"></h3>
+                <span class="author-role" data-typewrite data-key="role"></span>
+              </div>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="quote-text" data-typewrite data-key="short"></p>
+            <button type="button" class="testimonial-details-btn" onclick="openTestimonialModal(2)" data-typewrite data-key="viewDetails"></button>
+          </article>
+
+          <!-- 3 -->
+          <article class="testimonial-card" data-testimonial="3" data-typewrite-group data-i18n-section="testimonials.review3">
+            <div class="testimonial-top">
+              <img src="https://i.pravatar.cc/100?img=47" alt="" class="testimonial-avatar">
+              <div class="testimonial-person">
+                <h3 class="author-name" data-typewrite data-key="name"></h3>
+                <span class="author-role" data-typewrite data-key="role"></span>
+              </div>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="quote-text" data-typewrite data-key="short"></p>
+            <button type="button" class="testimonial-details-btn" onclick="openTestimonialModal(3)" data-typewrite data-key="viewDetails"></button>
+          </article>
+
+          <!-- 4 -->
+          <article class="testimonial-card" data-testimonial="4" data-typewrite-group data-i18n-section="testimonials.review4">
+            <div class="testimonial-top">
+              <img src="https://i.pravatar.cc/100?img=49" alt="" class="testimonial-avatar">
+              <div class="testimonial-person">
+                <h3 class="author-name" data-typewrite data-key="name"></h3>
+                <span class="author-role" data-typewrite data-key="role"></span>
+              </div>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="quote-text" data-typewrite data-key="short"></p>
+            <button type="button" class="testimonial-details-btn" onclick="openTestimonialModal(4)" data-typewrite data-key="viewDetails"></button>
+          </article>
+
+          <!-- 5 -->
+          <article class="testimonial-card" data-testimonial="5" data-typewrite-group data-i18n-section="testimonials.review5">
+            <div class="testimonial-top">
+              <img src="https://i.pravatar.cc/100?img=32" alt="" class="testimonial-avatar">
+              <div class="testimonial-person">
+                <h3 class="author-name" data-typewrite data-key="name"></h3>
+                <span class="author-role" data-typewrite data-key="role"></span>
+              </div>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="quote-text" data-typewrite data-key="short"></p>
+            <button type="button" class="testimonial-details-btn" onclick="openTestimonialModal(5)" data-typewrite data-key="viewDetails"></button>
+          </article>
+
+          <!-- 6 -->
+          <article class="testimonial-card" data-testimonial="6" data-typewrite-group data-i18n-section="testimonials.review6">
+            <div class="testimonial-top">
+              <img src="https://i.pravatar.cc/100?img=68" alt="" class="testimonial-avatar">
+              <div class="testimonial-person">
+                <h3 class="author-name" data-typewrite data-key="name"></h3>
+                <span class="author-role" data-typewrite data-key="role"></span>
+              </div>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="quote-text" data-typewrite data-key="short"></p>
+            <button type="button" class="testimonial-details-btn" onclick="openTestimonialModal(6)" data-typewrite data-key="viewDetails"></button>
+          </article>
+
+          <!-- 7 -->
+          <article class="testimonial-card" data-testimonial="7" data-typewrite-group data-i18n-section="testimonials.review7">
+            <div class="testimonial-top">
+              <img src="https://i.pravatar.cc/100?img=33" alt="" class="testimonial-avatar">
+              <div class="testimonial-person">
+                <h3 class="author-name" data-typewrite data-key="name"></h3>
+                <span class="author-role" data-typewrite data-key="role"></span>
+              </div>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="quote-text" data-typewrite data-key="short"></p>
+            <button type="button" class="testimonial-details-btn" onclick="openTestimonialModal(7)" data-typewrite data-key="viewDetails"></button>
+          </article>
+
+          <!-- 8 -->
+          <article class="testimonial-card" data-testimonial="8" data-typewrite-group data-i18n-section="testimonials.review8">
+            <div class="testimonial-top">
+              <img src="https://i.pravatar.cc/100?img=13" alt="" class="testimonial-avatar">
+              <div class="testimonial-person">
+                <h3 class="author-name" data-typewrite data-key="name"></h3>
+                <span class="author-role" data-typewrite data-key="role"></span>
+              </div>
+            </div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="quote-text" data-typewrite data-key="short"></p>
+            <button type="button" class="testimonial-details-btn" onclick="openTestimonialModal(8)" data-typewrite data-key="viewDetails"></button>
+          </article>
+
+        </div>
+
+        <button type="button" class="testimonial-nav testimonial-next" id="testimonialNext" aria-label="Next testimonial">›</button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEWS & UPDATES SECTION
+       ============================================================ -->
+  <section class="news-section" id="news">
+    <div class="container">
+
+      <!-- NEWS HEADER -->
+      <div class="news-header">
+        <div class="reveal-left" data-typewrite-group data-i18n-section="news">
+          <span class="section-tag" data-typewrite data-key="tag"></span>
+          <h2 class="section-heading" data-typewrite data-key="title"></h2>
+        </div>
+        <a href="/#contact" class="btn btn-secondary reveal-right" data-typewrite-group data-i18n-section="news">
+          <span data-typewrite data-key="viewAll"></span>
+        </a>
+      </div>
+
+      <!-- NEWS GRID -->
+      <div class="news-grid">
+
+        <!-- NEWS 1 -->
+        <article class="news-card reveal-left reveal-delay-1" data-typewrite-group data-i18n-section="news.article1">
+          <span class="news-tag" data-typewrite data-key="tag"></span>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="news-date" data-typewrite data-key="date"></span>
+        </article>
+
+        <!-- NEWS 2 -->
+        <article class="news-card reveal-left reveal-delay-2" data-typewrite-group data-i18n-section="news.article2">
+          <span class="news-tag" data-typewrite data-key="tag"></span>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="news-date" data-typewrite data-key="date"></span>
+        </article>
+
+        <!-- NEWS 3 -->
+        <article class="news-card reveal-left reveal-delay-3" data-typewrite-group data-i18n-section="news.article3">
+          <span class="news-tag" data-typewrite data-key="tag"></span>
+          <h3 data-typewrite data-key="title"></h3>
+          <p data-typewrite data-key="desc"></p>
+          <span class="news-date" data-typewrite data-key="date"></span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT CTA
+       ============================================================ -->
+  <section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-box" data-typewrite-group data-i18n-section="contact">
+      <span class="section-tag reveal-left" data-typewrite data-key="tag"></span>
+      <h2 class="font-serif reveal-left reveal-delay-1" data-typewrite data-key="title"></h2>
+      <p class="reveal-left reveal-delay-2" data-typewrite data-key="desc"></p>
+      <a class="btn btn-primary reveal-left reveal-delay-3" href="/#footer" onclick="openModal('contactModal')">
+        <span data-typewrite data-key="button"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- ============================================================
+       TESTIMONIAL MODAL
+       ============================================================ -->
+  <div class="testimonial-modal" id="testimonialModal" aria-hidden="true">
+    <div class="testimonial-modal-overlay"></div>
+    <div class="testimonial-modal-content" role="dialog" aria-modal="true">
+      <button type="button" class="testimonial-modal-close" onclick="closeTestimonialModal()" aria-label="Close">×</button>
+      <img id="modalTestimonialImage" class="testimonial-modal-avatar" src="" alt="">
+      <h2 id="modalTestimonialName"></h2>
+      <div id="modalTestimonialRole" class="testimonial-modal-role"></div>
+      <div class="testimonial-modal-rating">★★★★★</div>
+      <p id="modalTestimonialDescription"></p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  {% include "partials/footer.html" %}
+
+  <script src="/static/js/translations.js"></script>
+  <script src="/static/js/lang.js"></script>
+  <script src="/static/js/hero-typing.js"></script>
+  <script src="/static/js/scroll-reveal.js"></script>
+  <script src="/static/js/section-typing.js"></script>
+  <script src="/static/js/categories.js"></script>
+  <script src="/static/js/achievements.js"></script>
+  <script src="/static/js/testimonials.js"></script>
+
+  <script>
+    // Navbar scroll-progress line
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+        navbar.style.setProperty('--scroll-progress', progress);
+      }, { passive: true });
+    }
+
+    /* ============================================================
+       PRELOADER — MERGE → SPLIT → BLACK WIPE → PAGE
+       ============================================================ */
+   document.documentElement.classList.add("has-preloader");
+
+const preloader = document.getElementById("preloader");
+const body = document.body;
+
+// 1. J and P enter from opposite sides
+setTimeout(() => {
+  preloader.classList.add("pl-run");
+}, 150);
+
+// 2. J and P split apart and disappear
+setTimeout(() => {
+  preloader.classList.add("pl-split");
+}, 1500);
+
+// 3. After letters disappear, open the page
+setTimeout(() => {
+  preloader.classList.add("pl-curtain-out");
+}, 2350);
+
+// 4. Finish preloader
+setTimeout(() => {
+  preloader.classList.add("pl-open");
+
+  body.classList.remove("preloading");
+  document.documentElement.classList.remove("has-preloader");
+
+  if (typeof window.startHeroSequence === "function") {
+    window.startHeroSequence();
+  } else {
+    document
+      .querySelectorAll("#hero .reveal-left, #hero .reveal-up")
+      .forEach(el => el.classList.add("is-visible"));
+  }
+
+  // Restore hash navigation after preloader
+  if (window.location.hash) {
+    setTimeout(() => {
+      const target = document.querySelector(window.location.hash);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }, 100);
+  }
+
+  // Mobile navigation
+  const mobileToggle = document.querySelector(".mobile-toggle");
+  const navLinksList = document.querySelector(".nav-links");
+
+  if (mobileToggle && navLinksList) {
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = navLinksList.classList.toggle("open");
+
+      mobileToggle.setAttribute("aria-expanded", isOpen);
+      mobileToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close menu when a nav link is clicked
+    navLinksList.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinksList.classList.remove("open");
+        mobileToggle.textContent = "☰";
+      });
+    });
+  }
+
+}, 2350);
+  </script>
+<script>
+  async function loadLatestArticles(lang) {
+    const grid = document.getElementById("latestArticlesGrid");
+    if (!grid) return;
+
+    try {
+      const res = await fetch(`/api/contents?lang=${lang}&limit=4`);
+      if (!res.ok) return;
+      const items = await res.json();
+
+      const badge = lang === "ta" ? "சினிமா கட்டுரை" : "Cinema Essay";
+      const linkText = lang === "ta" ? "கட்டுரையைக் காண →" : "View Article →";
+
+      grid.innerHTML = "";
+      items.forEach((a, i) => {
+        const card = document.createElement("article");
+        card.className =
+          `article-home-card ${i % 2 ? "reveal-right" : "reveal-left"} reveal-delay-${i + 1}`;
+        card.innerHTML = `
+          <div class="article-home-cover">
+            <span class="article-home-cover-icon">🎬</span>
+          </div>
+          <div class="article-home-body">
+            <div class="article-home-meta">
+              <span class="article-home-badge"></span>
+              <span class="article-home-date"></span>
+            </div>
+            <h3 class="article-home-title font-tamil"></h3>
+            <p class="article-home-desc font-tamil"></p>
+            <div class="article-home-footer">
+              <a class="work-link"></a>
+            </div>
+          </div>`;
+
+        card.querySelector(".article-home-badge").textContent = badge;
+        card.querySelector(".article-home-date").textContent = a.displayDate || "";
+        card.querySelector(".article-home-title").textContent = a.title;
+        card.querySelector(".article-home-desc").textContent = a.excerpt || "";
+        const link = card.querySelector(".work-link");
+        link.href = `/article?id=${encodeURIComponent(a.slug)}`;
+        link.textContent = linkText;
+
+        grid.appendChild(card);
+      });
+
+      if (typeof window.observeRevealElements === "function") {
+        window.observeRevealElements();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  document.addEventListener("languageChanged", e => {
+    loadLatestArticles(e.detail.language);
+  });
+</script>
+</body>
+</html>

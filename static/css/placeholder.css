@@ -1,0 +1,360 @@
+/* PRELOADER J+P ENTER → MERGE → SPLIT → DISAPPEAR → CURTAIN OPENS */
+html.has-preloader,
+html.has-preloader body.preloading {
+    overflow: hidden;
+    height: 100%;
+}
+
+/* ------------------------------------------------------------
+   2. MAIN PRELOADER
+   ------------------------------------------------------------ */
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    /* Merge/split offset — scaled per breakpoint below so the amount
+       the letters overlap stays proportional to their size instead
+       of a fixed 18px that caused a collision on small screens. */
+    --pl-offset: 18px;
+    /* Previously missing entirely — with no transition, .pl-open flipped
+       opacity 1 -> 0 in a single frame, so the real webpage "popped" in
+       instantly instead of resolving smoothly. That hard cut is what
+       read as clumsy, especially on mobile where the centered logo
+       screen looks nothing like the scrollable page underneath it. */
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+#preloader.pl-open {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* 3. J + P CONTAINER */
+
+.preloader-letters {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* 4. J + P IMAGE BOXES */
+.preloader-letters .pl-j,
+.preloader-letters .pl-p {
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    flex: 0 0 150px;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+/* 5. J + P IMAGES */
+
+.preloader-letters .pl-j img,
+.preloader-letters .pl-p img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* 6. INITIAL POSITIONS */
+
+.preloader-letters .pl-j {
+    transform: translateX(-55vw);
+}
+
+.preloader-letters .pl-p {
+    transform: translateX(55vw);
+}
+
+/* 7. J + P ENTER AND MERGE */
+
+#preloader.pl-run .pl-j {
+    animation:
+        plSlideLeft 1.1s cubic-bezier(.16, .84, .44, 1) forwards;
+}
+
+#preloader.pl-run .pl-p {
+    animation:
+        plSlideRight 1.1s cubic-bezier(.16, .84, .44, 1) forwards;
+}
+
+/* J → CENTER */
+
+@keyframes plSlideLeft {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-55vw);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(var(--pl-offset));
+    }
+}
+
+/* P → CENTER */
+
+@keyframes plSlideRight {
+
+    0% {
+        opacity: 0;
+        transform: translateX(55vw);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(calc(-1 * var(--pl-offset)));
+    }
+}
+
+/* 8. J + P SPLIT */
+
+#preloader.pl-split .pl-j {
+    animation:
+        plSplitLeft .8s cubic-bezier(.65, 0, .35, 1) forwards;
+}
+
+#preloader.pl-split .pl-p {
+    animation:
+        plSplitRight .8s cubic-bezier(.65, 0, .35, 1) forwards;
+}
+
+/* J → LEFT */
+
+@keyframes plSplitLeft {
+
+    0% {
+        opacity: 1;
+        transform: translateX(var(--pl-offset));
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: .7;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-55vw);
+    }
+}
+
+/* P → RIGHT */
+
+@keyframes plSplitRight {
+
+    0% {
+        opacity: 1;
+        transform: translateX(calc(-1 * var(--pl-offset)));
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: .7;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(55vw);
+    }
+}
+
+/* 9. CURTAIN */
+
+.pl-curtain {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* LEFT CURTAIN */
+
+.pl-curtain::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--bg-dark);
+    transform: translateX(0);
+    will-change: transform;
+}
+
+/* RIGHT CURTAIN */
+
+.pl-curtain::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--bg-dark);
+    transform: translateX(0);
+    will-change: transform;
+}
+
+/* 10. CURTAIN OPENS */
+
+#preloader.pl-curtain-out .pl-curtain::before {
+    animation: curtainLeft .75s cubic-bezier(.77, 0, .18, 1) forwards;
+}
+
+#preloader.pl-curtain-out .pl-curtain::after {
+    animation: curtainRight .75s cubic-bezier(.77, 0, .18, 1) forwards;
+}
+
+/* LEFT → OUT */
+@keyframes curtainLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* RIGHT → OUT */
+
+@keyframes curtainRight {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* 11. RESPONSIVE IMAGE SIZES */
+
+/* DESKTOP */
+
+@media (min-width: 769px) {
+
+    #preloader {
+        --pl-offset: 30px;
+    }
+
+    .preloader-letters .pl-j,
+    .preloader-letters .pl-p {
+        width: 250px;
+        height: 250px;
+        flex-basis: 250px;
+    }
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+
+    #preloader {
+        --pl-offset: 22px;
+    }
+
+    .preloader-letters .pl-j,
+    .preloader-letters .pl-p {
+        width: 180px;
+        height: 180px;
+        flex-basis: 180px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+    #preloader {
+        --pl-offset: 16px;
+    }
+
+    .preloader-letters .pl-j,
+    .preloader-letters .pl-p {
+        width: 150px;
+        height: 150px;
+        flex-basis: 150px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 360px) {
+
+    #preloader {
+        --pl-offset: 12px;
+    }
+
+    .preloader-letters .pl-j,
+    .preloader-letters .pl-p {
+        width: 120px;
+        height: 120px;
+        flex-basis: 120px;
+    }
+}
+
+/* 12. REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    #preloader {
+        display: none;
+        transition: none;
+    }
+
+    html.has-preloader,
+    html.has-preloader body.preloading {
+        overflow: auto;
+        height: auto;
+    }
+}

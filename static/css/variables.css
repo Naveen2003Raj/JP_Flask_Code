@@ -1,0 +1,168 @@
+/* ============================================================
+   VARIABLES.CSS
+   Jeeva Ponnuchamy Portfolio
+
+   Contains:
+   - CSS Variables
+   - Google Fonts
+   - Global Reset
+   - HTML / Body Base Styles
+   - Reduced Motion
+   - Background Grain
+   - Typography Helpers
+   - Tamil Language Support
+   - Language Change Transition
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+Tamil:wght@400;500;600&display=swap');
+
+:root {
+  /* Background */
+  --bg-dark: #0a0a09;
+  --bg-card: #131311;
+  --bg-card-hover: #1a1a17;
+  --bg-glass: rgba(19, 19, 17, 0.92);
+  /* Accent */
+  --accent: #efeee7;
+  --accent-light: #ffffff;
+  --accent-glow: rgba(255, 255, 255, 0.12);
+  /* Text */
+  --text-main: #efeee7;
+  --text-muted: #9c9b93;
+  --text-dim: #5f5e57;
+  /* Borders */
+  --border: #2a2a26;
+  --border-accent: #55554e;
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:
+    'Manrope',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  --font-mono:
+    'JetBrains Mono',
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  --font-tamil: 'Noto Serif Tamil', serif;
+  /* Layout */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --container-max: 1240px;
+  /* Navbar */
+  --nav-h: 88px;
+  --nav-h-scrolled: 64px;
+}
+
+   /* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  overflow-wrap: break-word;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+   /* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+}
+
+   /* BODY */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+   /* SUBTLE FILM GRAIN EFFECT */
+
+.bg-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+   /* GLOBAL TYPOGRAPHY */
+
+h1,
+h2,
+h3,
+h4,
+.font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-tamil {
+  font-family: var(--font-tamil);
+}
+
+   /* TAMIL LANGUAGE SUPPORT */
+html[lang="ta"] [data-en],
+html[lang="ta"] [data-typewrite] {
+  font-family: var(--font-tamil);
+}
+
+html[lang="ta"] .hero-title {
+  font-size: 1.06em;
+}
+
+
+html[lang="ta"] .section-heading,
+html[lang="ta"] h2 {
+  font-size: 1.06em;
+}
+
+[data-en],
+[data-typewrite] {
+  transition:
+    opacity 0.25s ease,
+    font-size 0.25s ease;
+}
+
+
+
+.language-changing [data-en],
+.language-changing [data-typewrite] {
+  opacity: 0;
+}

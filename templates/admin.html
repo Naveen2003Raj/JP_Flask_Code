@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #111; color: #eee; margin: 0; }
+    .hidden { display: none !important; }
+
+    input, textarea, select, button { font-family: inherit; font-size: 15px; }
+    input, textarea, select {
+      width: 100%; padding: 10px; margin-top: 10px;
+      background: #111; color: #eee; border: 1px solid #333; border-radius: 6px;
+    }
+    button {
+      padding: 9px 16px; background: #2d6cdf; color: #fff;
+      border: 0; border-radius: 6px; cursor: pointer;
+    }
+    button:hover { opacity: .9; }
+    button.secondary { background: #2a2a2a; border: 1px solid #444; }
+
+    /* login */
+    .box { max-width: 360px; margin: 80px auto; padding: 24px; background: #1c1c1c; border-radius: 8px; }
+    .box button { width: 100%; margin-top: 12px; }
+    #msg { color: #ff6b6b; margin-top: 10px; min-height: 1em; }
+
+    /* dashboard */
+    .dash { max-width: 800px; margin: 30px auto; padding: 0 16px; }
+    nav { display: flex; gap: 12px; align-items: center; margin-bottom: 20px;
+          padding-bottom: 14px; border-bottom: 1px solid #2a2a2a; }
+    #who { margin-left: auto; font-size: 14px; color: #aaa; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; }
+
+    .card { display: flex; justify-content: space-between; align-items: center; gap: 12px;
+            background: #1c1c1c; padding: 12px 16px; border-radius: 8px; margin-top: 10px; }
+    .card strong { display: block; }
+    .card small { color: #aaa; display: block; margin-top: 4px; }
+    .icons { display: flex; gap: 6px; flex-shrink: 0; }
+    .icons button { background: none; border: 1px solid #444; padding: 6px 10px; }
+
+    /* form */
+    #formView label { display: block; margin-top: 14px; font-size: 13px; color: #aaa; }
+    #formView input, #formView textarea, #formView select { margin-top: 4px; }
+    .formBtns { display: flex; gap: 10px; margin-top: 18px; }
+    #formMsg { margin-top: 12px; color: #6bff95; min-height: 1.2em; }
+  </style>
+</head>
+<body>
+  <div id="loginView" class="box hidden">
+    <h2>Admin Login</h2>
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <div id="msg"></div>
+  </div>
+
+  <div id="dashView" class="dash hidden">
+    <nav>
+      <button id="navArticles">Articles (<span id="count">0</span>)</button>
+      <span id="who"></span>
+      <button id="logoutBtn" class="secondary">Logout</button>
+    </nav>
+
+    <section id="articlesView">
+      <div class="topbar">
+        <h2>Articles</h2>
+        <button id="createBtn">+ Create new</button>
+      </div>
+      <div id="cards"></div>
+    </section>
+
+    <section id="formView" class="hidden">
+      <h2 id="formTitle">New article</h2>
+      <form id="articleForm">
+        <label>Slug</label>
+        <input id="f_slug" placeholder="e.g. article-11" required>
+        <label>Tamil title</label>
+        <input id="f_title" required>
+        <label>Tamil excerpt</label>
+        <textarea id="f_excerpt" rows="3"></textarea>
+        <label>Tamil body (blank line between paragraphs)</label>
+        <textarea id="f_body" rows="10"></textarea>
+        <label>Status</label>
+        <select id="f_status">
+          <option value="draft">draft</option>
+          <option value="published">published</option>
+        </select>
+        <label>English title</label>
+        <input id="f_en_title">
+        <label>English excerpt</label>
+        <textarea id="f_en_excerpt" rows="3"></textarea>
+        <label>English date</label>
+        <input id="f_en_date" placeholder="e.g. March 2024">
+        <div class="formBtns">
+          <button type="submit">Submit</button>
+          <button type="button" id="cancelBtn" class="secondary">Cancel</button>
+        </div>
+        <div id="formMsg"></div>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const loginView = $('loginView');
+    const dashView = $('dashView');
+    const articlesView = $('articlesView');
+    const formView = $('formView');
+    const formMsg = $('formMsg');
+    let editingSlug = null;
+
+    function showList() {
+      formView.classList.add('hidden');
+      articlesView.classList.remove('hidden');
+    }
+
+    function showForm() {
+      articlesView.classList.add('hidden');
+      formView.classList.remove('hidden');
+    }
+
+    function show(loggedIn, user) {
+      loginView.classList.toggle('hidden', loggedIn);
+      dashView.classList.toggle('hidden', !loggedIn);
+      if (loggedIn) {
+        $('who').textContent = (user && user.email) || '';
+        showList();
+        loadArticles();
+      }
+    }
+
+    async function loadArticles() {
+      const r = await fetch('/api/admin/contents');
+      if (!r.ok) { console.log('list failed', r.status); return; }
+      const items = await r.json();
+      $('count').textContent = items.length;
+
+      const cards = $('cards');
+      cards.innerHTML = '';
+      items.forEach(a => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const info = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = a.title;
+        const meta = document.createElement('small');
+        meta.textContent = a.slug + ' · ' + a.status;
+        info.append(title, meta);
+
+        const icons = document.createElement('div');
+        icons.className = 'icons';
+        icons.innerHTML = '<button class="editBtn" title="Edit">✏️</button><button class="delBtn" title="Delete">🗑️</button>';
+
+        icons.querySelector('.editBtn').onclick = async () => {
+          const slug = encodeURIComponent(a.slug);
+          const [taRes, enRes] = await Promise.all([
+            fetch('/api/contents/' + slug + '?lang=ta'),
+            fetch('/api/contents/' + slug + '?lang=en')
+          ]);
+          if (!taRes.ok || !enRes.ok) {
+            alert('Could not load article: ' + taRes.status + ' / ' + enRes.status);
+            return;
+          }
+          const ta = await taRes.json();
+          const en = await enRes.json();
+
+          editingSlug = a.slug;
+          $('formTitle').textContent = 'Edit article';
+          $('f_slug').value = ta.slug;
+          $('f_slug').disabled = true;
+          $('f_title').value = ta.title || '';
+          $('f_excerpt').value = ta.excerpt || '';
+          $('f_body').value = (ta.body && ta.body.text) || '';
+          $('f_status').value = ta.status || 'draft';
+          $('f_en_title').value = en.title || '';
+          $('f_en_excerpt').value = en.excerpt || '';
+          $('f_en_date').value = en.displayDate || '';
+          formMsg.textContent = '';
+          showForm();
+        };
+
+        icons.querySelector('.delBtn').onclick = async () => {
+          if (!confirm('Delete "' + a.title + '"?')) return;
+          const r = await fetch('/api/admin/contents/' + encodeURIComponent(a.slug), { method: 'DELETE' });
+          if (r.ok) loadArticles();
+          else alert('Delete failed: ' + r.status);
+        };
+
+        card.append(info, icons);
+        cards.appendChild(card);
+      });
+    }
+
+    $('navArticles').onclick = () => { showList(); loadArticles(); };
+
+    $('createBtn').onclick = () => {
+      $('articleForm').reset();
+      editingSlug = null;
+      $('formTitle').textContent = 'New article';
+      $('f_slug').disabled = false;
+      formMsg.textContent = '';
+      showForm();
+    };
+
+    $('cancelBtn').onclick = showList;
+
+    $('articleForm').onsubmit = async (e) => {
+      e.preventDefault();
+      formMsg.style.color = '#6bff95';
+      formMsg.textContent = '';
+
+      const payload = {
+        type: 'article',
+        slug: $('f_slug').value.trim(),
+        title: $('f_title').value,
+        excerpt: $('f_excerpt').value,
+        bodyText: $('f_body').value,
+        status: $('f_status').value,
+        translations: { en: {
+          title: $('f_en_title').value,
+          excerpt: $('f_en_excerpt').value,
+          displayDate: $('f_en_date').value
+        } }
+      };
+
+      const url = editingSlug
+        ? '/api/admin/contents/' + encodeURIComponent(editingSlug)
+        : '/api/admin/contents';
+
+      const r = await fetch(url, {
+        method: editingSlug ? 'PUT' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      console.log('SAVE', url, r.status, await r.clone().text());
+
+      if (r.ok) {
+        formMsg.textContent = 'Saved successfully';
+        loadArticles();
+        setTimeout(showList, 1000);
+      } else {
+        formMsg.style.color = '#ff6b6b';
+        formMsg.textContent = 'Save failed: ' + r.status;
+      }
+    };
+
+    async function checkMe() {
+      const r = await fetch('/api/me');
+      if (r.ok) show(true, await r.json());
+      else show(false);
+    }
+
+    $('loginBtn').onclick = async () => {
+      msg.textContent = '';
+      const r = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: $('email').value, password: $('password').value })
+      });
+      if (r.ok) checkMe();
+      else msg.textContent = 'Wrong email or password';
+    };
+
+    $('logoutBtn').onclick = async () => {
+      await fetch('/api/logout', { method: 'POST' });
+      show(false);
+    };
+
+    checkMe();
+  </script>
+</body>
+</html>

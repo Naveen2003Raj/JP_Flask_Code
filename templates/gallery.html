@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Jeeva Ponnuchamy · Events, Lectures & Workshops</title>
+  <meta name="description" content="Visual gallery archive of Jeeva Ponnuchamy — Event photographs, film institute lectures, book launch ceremonies, and editing workshops with detailed mini descriptions.">
+
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/global-animation.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+Tamil:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.classList.add("js-typewrite-ready");</script>
+  <style>
+    /* ============================================================
+       GALLERY HERO
+       ============================================================ */
+    .gallery-hero {
+      padding-top: 9rem;
+      padding-bottom: 5rem;
+      background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .gallery-hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       SECTION
+       ============================================================ */
+    .gallery-section {
+      padding: 5rem 0 7rem;
+    }
+
+    /* ============================================================
+       FILTER BAR
+       ============================================================ */
+    .gallery-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .gallery-filter-bar .tab-btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      padding: 0.75rem 1.15rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-filter-bar .tab-btn:hover {
+      color: var(--text-main);
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .gallery-filter-bar .tab-btn.active {
+      color: var(--bg-dark);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Additional tabs hidden initially */
+    .additional-gallery-category {
+      display: none;
+    }
+
+    /* ============================================================
+       GRID
+       ============================================================ */
+    .gallery-grid-full {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    /* ============================================================
+       CARD
+       ============================================================ */
+    .gallery-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.6s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    /* ============================================================
+       IMAGE
+       ============================================================ */
+    .gallery-img-wrap {
+      width: 100%;
+      height: 280px;
+      position: relative;
+      background: #000;
+      overflow: hidden;
+      transition: filter 0.5s ease;
+    }
+
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.7s ease;
+    }
+
+    .gallery-img-wrap img.img-loaded {
+      opacity: 1;
+    }
+
+    .gallery-card:hover .gallery-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    /* ============================================================
+       IMAGE-ONLY PERSONAL
+       ============================================================ */
+    .gallery-image-only .gallery-img-wrap {
+      height: 380px;
+    }
+
+    .gallery-image-only {
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       BODY
+       ============================================================ */
+    .gallery-card-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .gallery-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .gallery-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-full);
+    }
+
+    .gallery-date-loc {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    .gallery-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+      line-height: 1.35;
+    }
+
+    .gallery-mini-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-top: 0.5rem;
+      flex-grow: 1;
+    }
+
+    /* ============================================================
+       ENQUIRE BUTTON
+       ============================================================ */
+    .gallery-footer-action {
+      border-top: 1px solid var(--border);
+      margin-top: 1.25rem;
+      padding-top: 0.85rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .gallery-enquire-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-full);
+      color: var(--text-main);
+      background: transparent;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-enquire-btn:hover {
+      background: var(--accent);
+      color: var(--bg-dark);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       HIDDEN FILTER CARDS
+       ============================================================ */
+    .gallery-grid-full .gallery-card.gc-hidden {
+      display: none !important;
+    }
+
+    /* ============================================================
+       FILTER ENTRANCE
+       ============================================================ */
+    .gallery-card.filter-enter {
+      animation: galleryCardEnter 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes galleryCardEnter {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============================================================
+       MOBILE
+       ============================================================ */
+    @media (max-width: 768px) {
+      .gallery-hero {
+        padding-top: 7.5rem;
+        padding-bottom: 4rem;
+      }
+
+      .gallery-section {
+        padding: 4rem 0 5rem;
+      }
+
+      .gallery-grid-full {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .gallery-filter-bar {
+        gap: 0.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .gallery-filter-bar .tab-btn {
+        font-size: 0.65rem;
+        padding: 0.65rem 0.85rem;
+      }
+
+      .gallery-img-wrap {
+        height: 240px;
+      }
+
+      .gallery-image-only .gallery-img-wrap {
+        height: 300px;
+      }
+    }
+
+    /* ============================================================
+       REDUCED MOTION
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-card.reveal-left,
+      .gallery-card.reveal-right {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .gallery-card,
+      .gallery-img-wrap img,
+      .gallery-enquire-btn {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glow Overlay -->
+  <div class="bg-glow"></div>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  {% include "partials/navbar.html" %}
+
+  <!-- ============================================================
+       GALLERY HERO
+       ============================================================ -->
+  <section class="gallery-hero" data-typewrite-group data-i18n-section="galleryPage.hero">
+    <div class="container reveal-fade">
+      <span class="section-tag" data-typewrite data-key="tag"></span>
+      <h1 class="hero-title font-serif text-gradient" data-typewrite data-key="title"></h1>
+      <p class="gallery-hero-subtitle" data-typewrite data-key="subtitle"></p>
+      <p class="section-description" data-typewrite data-key="description"></p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY CATALOG
+       ============================================================ -->
+  <section class="gallery-section">
+    <div class="container">
+
+      <!-- FILTER TABS -->
+      <div class="gallery-filter-bar reveal-up" data-gallery-tabs data-typewrite-group data-i18n-section="galleryPage.tabs">
+
+        <!-- Initial 3 -->
+        <button type="button" class="tab-btn active" data-gallery-filter="filmBlackWhite" data-gallery-tab>
+          <span data-typewrite data-key="filmBlackWhite"></span>
+        </button>
+        <button type="button" class="tab-btn" data-gallery-filter="filmColour" data-gallery-tab>
+          <span data-typewrite data-key="filmColour"></span>
+        </button>
+        <button type="button" class="tab-btn" data-gallery-filter="digital" data-gallery-tab>
+          <span data-typewrite data-key="digital"></span>
+        </button>
+
+        <!-- Additional categories (revealed by "View All") -->
+        <button type="button" class="tab-btn additional-gallery-category" data-gallery-filter="published" data-gallery-tab>
+          <span data-typewrite data-key="published"></span>
+        </button>
+        <button type="button" class="tab-btn additional-gallery-category" data-gallery-filter="filmWorkshop" data-gallery-tab>
+          <span data-typewrite data-key="filmWorkshop"></span>
+        </button>
+        <button type="button" class="tab-btn additional-gallery-category" data-gallery-filter="awardCeremony" data-gallery-tab>
+          <span data-typewrite data-key="awardCeremony"></span>
+        </button>
+        <button type="button" class="tab-btn additional-gallery-category" data-gallery-filter="events" data-gallery-tab>
+          <span data-typewrite data-key="events"></span>
+        </button>
+        <button type="button" class="tab-btn additional-gallery-category" data-gallery-filter="travel" data-gallery-tab>
+          <span data-typewrite data-key="travel"></span>
+        </button>
+        <button type="button" class="tab-btn additional-gallery-category" data-gallery-filter="personal" data-gallery-tab>
+          <span data-typewrite data-key="personal"></span>
+        </button>
+
+        <!-- View All / View Less toggle -->
+        <button type="button" class="tab-btn gallery-view-toggle" data-gallery-view-toggle>
+          <span data-typewrite data-key="viewAll" data-gallery-view-label="all"></span>
+          <span data-typewrite data-key="viewLess" data-gallery-view-label="less" hidden></span>
+        </button>
+
+      </div>
+
+      <!-- GALLERY GRID -->
+      <div class="gallery-grid-full">
+
+        <!-- Film black & white -->
+        <article class="gallery-card gallery-enquiry-card reveal-left" data-gallery-category="filmBlackWhite" data-gallery-card="filmBlackWhite1" data-typewrite-group data-i18n-section="galleryPage.cards.filmBlackWhite1">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1000&q=85&auto=format&fit=crop" alt="Black and white film photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <a href="/#contact" class="gallery-enquire-btn" data-typewrite data-key="action"></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card gallery-enquiry-card reveal-right" data-gallery-category="filmBlackWhite" data-gallery-card="filmBlackWhite2" data-typewrite-group data-i18n-section="galleryPage.cards.filmBlackWhite2">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1000&q=85&auto=format&fit=crop" alt="Black and white film photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <a href="/#contact" class="gallery-enquire-btn" data-typewrite data-key="action"></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card gallery-enquiry-card reveal-left" data-gallery-category="filmBlackWhite" data-gallery-card="filmBlackWhite3" data-typewrite-group data-i18n-section="galleryPage.cards.filmBlackWhite3">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=1000&q=85&auto=format&fit=crop" alt="Black and white film photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <a href="/#contact" class="gallery-enquire-btn" data-typewrite data-key="action"></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Film colour -->
+        <article class="gallery-card gallery-enquiry-card reveal-right" data-gallery-category="filmColour" data-gallery-card="filmColour1" data-typewrite-group data-i18n-section="galleryPage.cards.filmColour1">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1000&q=85&auto=format&fit=crop" alt="Colour film photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <a href="/#contact" class="gallery-enquire-btn" data-typewrite data-key="action"></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card gallery-enquiry-card reveal-left" data-gallery-category="filmColour" data-gallery-card="filmColour2" data-typewrite-group data-i18n-section="galleryPage.cards.filmColour2">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1000&q=85&auto=format&fit=crop" alt="Colour film photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <a href="/#contact" class="gallery-enquire-btn" data-typewrite data-key="action"></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card gallery-enquiry-card reveal-right" data-gallery-category="filmColour" data-gallery-card="filmColour3" data-typewrite-group data-i18n-section="galleryPage.cards.filmColour3">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1000&q=85&auto=format&fit=crop" alt="Colour film photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <a href="/#contact" class="gallery-enquire-btn" data-typewrite data-key="action"></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Digital -->
+        <article class="gallery-card gallery-enquiry-card reveal-left" data-gallery-category="digital" data-gallery-card="digital1" data-typewrite-group data-i18n-section="galleryPage.cards.digital1">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1000&q=85&auto=format&fit=crop" alt="Digital photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <a href="/#contact" class="gallery-enquire-btn" data-typewrite data-key="action"></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card gallery-enquiry-card reveal-right" data-gallery-category="digital" data-gallery-card="digital2" data-typewrite-group data-i18n-section="galleryPage.cards.digital2">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?w=1000&q=85&auto=format&fit=crop" alt="Digital photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <a href="/#contact" class="gallery-enquire-btn" data-typewrite data-key="action"></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card gallery-enquiry-card reveal-left" data-gallery-category="digital" data-gallery-card="digital3" data-typewrite-group data-i18n-section="galleryPage.cards.digital3">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000&q=85&auto=format&fit=crop" alt="Digital photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <a href="/#contact" class="gallery-enquire-btn" data-typewrite data-key="action"></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Published -->
+        <article class="gallery-card reveal-right" data-gallery-category="published" data-gallery-card="published1" data-typewrite-group data-i18n-section="galleryPage.cards.published1">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=1000&q=85&auto=format&fit=crop" alt="Published work" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-left" data-gallery-category="published" data-gallery-card="published2" data-typewrite-group data-i18n-section="galleryPage.cards.published2">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=1000&q=85&auto=format&fit=crop" alt="Published work" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-right" data-gallery-category="published" data-gallery-card="published3" data-typewrite-group data-i18n-section="galleryPage.cards.published3">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1000&q=85&auto=format&fit=crop" alt="Published work" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <!-- Film workshop -->
+        <article class="gallery-card reveal-left" data-gallery-category="filmWorkshop" data-gallery-card="teaching7" data-typewrite-group data-i18n-section="galleryPage.cards.teaching7">
+          <div class="gallery-img-wrap">
+            <img src="/static/img/madras.jpg" alt="Farm Tech Short Films & e-Extension Training Programme" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <span data-typewrite data-key="action"></span>
+              <span class="expand-icon">→</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-right" data-gallery-category="filmWorkshop" data-gallery-card="teaching8" data-typewrite-group data-i18n-section="galleryPage.cards.teaching8">
+          <div class="gallery-img-wrap">
+            <img src="/static/img/461478743_7949396521853891_3373488087757176165_n.jpg" alt="Hands-on editing lab session with workshop participant" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <span data-typewrite data-key="action"></span>
+              <span class="expand-icon">→</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-left" data-gallery-category="filmWorkshop" data-gallery-card="teaching9" data-typewrite-group data-i18n-section="galleryPage.cards.teaching9">
+          <div class="gallery-img-wrap">
+            <img src="/static/img/teaching.JPG" alt="Workshop participant giving remarks with instructor seated nearby" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <span data-typewrite data-key="action"></span>
+              <span class="expand-icon">→</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-right" data-gallery-category="filmWorkshop" data-gallery-card="teaching10" data-typewrite-group data-i18n-section="galleryPage.cards.teaching10">
+          <div class="gallery-img-wrap">
+            <img src="/static/img/editing.jpg" alt="Editing techniques masterclass at Sakthi Polytechnic College" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <span data-typewrite data-key="action"></span>
+              <span class="expand-icon">→</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-left" data-gallery-category="filmWorkshop" data-gallery-card="teaching11" data-typewrite-group data-i18n-section="galleryPage.cards.teaching11">
+          <div class="gallery-img-wrap">
+            <img src="/static/img/new.jpg" alt="Instructor portrait at Sakthi Polytechnic College workshop" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+            <div class="gallery-footer-action">
+              <span data-typewrite data-key="action"></span>
+              <span class="expand-icon">→</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Award ceremony -->
+        <article class="gallery-card reveal-right" data-gallery-category="awardCeremony" data-gallery-card="awardCeremony1" data-typewrite-group data-i18n-section="galleryPage.cards.awardCeremony1">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1000&q=85&auto=format&fit=crop" alt="Award ceremony" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-left" data-gallery-category="awardCeremony" data-gallery-card="awardCeremony2" data-typewrite-group data-i18n-section="galleryPage.cards.awardCeremony2">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1000&q=85&auto=format&fit=crop" alt="Award ceremony" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-right" data-gallery-category="awardCeremony" data-gallery-card="awardCeremony3" data-typewrite-group data-i18n-section="galleryPage.cards.awardCeremony3">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=1000&q=85&auto=format&fit=crop" alt="Award ceremony" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <!-- Events -->
+        <article class="gallery-card reveal-left" data-gallery-category="events" data-gallery-card="events1" data-typewrite-group data-i18n-section="galleryPage.cards.events1">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1000&q=85&auto=format&fit=crop" alt="Event photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-right" data-gallery-category="events" data-gallery-card="events2" data-typewrite-group data-i18n-section="galleryPage.cards.events2">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1000&q=85&auto=format&fit=crop" alt="Creative event" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-left" data-gallery-category="events" data-gallery-card="events3" data-typewrite-group data-i18n-section="galleryPage.cards.events3">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1000&q=85&auto=format&fit=crop" alt="Literary event" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <!-- Travel -->
+        <article class="gallery-card reveal-right" data-gallery-category="travel" data-gallery-card="travel1" data-typewrite-group data-i18n-section="galleryPage.cards.travel1">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1000&q=85&auto=format&fit=crop" alt="Travel photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-left" data-gallery-category="travel" data-gallery-card="travel2" data-typewrite-group data-i18n-section="galleryPage.cards.travel2">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1000&q=85&auto=format&fit=crop" alt="Travel landscape" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal-right" data-gallery-category="travel" data-gallery-card="travel3" data-typewrite-group data-i18n-section="galleryPage.cards.travel3">
+          <div class="gallery-img-wrap">
+            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1000&q=85&auto=format&fit=crop" alt="Travel photography" loading="lazy">
+          </div>
+          <div class="gallery-card-body">
+            <div class="gallery-meta-row">
+              <span class="gallery-badge" data-typewrite data-key="badge"></span>
+              <span class="gallery-date-loc" data-typewrite data-key="meta"></span>
+            </div>
+            <h3 class="gallery-title" data-typewrite data-key="title"></h3>
+            <p class="gallery-mini-desc" data-typewrite data-key="description"></p>
+          </div>
+        </article>
+
+        <!-- Personal — image only -->
+        <article class="gallery-card gallery-image-only reveal-left" data-gallery-category="personal" data-gallery-card="personal1">
+          <div class="gallery-img-wrap">
+            <img src="/static/img/newPotrait.jpg" alt="Personal portrait" loading="lazy">
+          </div>
+        </article>
+
+        <article class="gallery-card gallery-image-only reveal-right" data-gallery-category="personal" data-gallery-card="personal2">
+          <div class="gallery-img-wrap">
+            <img src="/static/img/potrait2.jpg" alt="Personal portrait" loading="lazy">
+          </div>
+        </article>
+
+        <article class="gallery-card gallery-image-only reveal-left" data-gallery-category="personal" data-gallery-card="personal3">
+          <div class="gallery-img-wrap">
+            <img src="/static/img/teaching.JPG" alt="Personal portrait" loading="lazy">
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  {% include "partials/footer.html" %}
+
+  <script src="/static/js/translations.js"></script>
+  <script src="/static/js/lang.js"></script>
+  <script src="/static/js/section-typing.js"></script>
+  <script src="/static/js/scroll-reveal.js"></script>
+  <script src="/static/js/gallery.js"></script>
+
+  <script>
+    /* ============================================================
+       GALLERY PAGE — FILTER + SMOOTH TRANSITIONS
+       ============================================================ */
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('[data-gallery-filter]');
+      const galleryCards = document.querySelectorAll('[data-gallery-category]');
+      const EXCLUSIVE_CATEGORIES = ['teaching']; // hidden from "All Photos", visible only on their own tab
+
+      /* Smooth fade-in for every image once it has actually loaded (page-load transition) */
+      galleryCards.forEach((card) => {
+        const img = card.querySelector('.gallery-img-wrap img');
+        if (img) {
+          const markLoaded = () => img.classList.add('img-loaded');
+          if (img.complete && img.naturalWidth > 0) {
+            markLoaded();
+          } else {
+            img.addEventListener('load', markLoaded);
+            img.addEventListener('error', markLoaded);
+          }
+        }
+      });
+
+      /* Staggered entrance animation for cards as the page loads */
+      function revealCards(cards) {
+        cards.forEach((card, i) => {
+          if (card.style.display === 'none') return;
+          card.classList.remove('card-visible');
+          // force reflow so the transition re-triggers on filter changes
+          void card.offsetWidth;
+          setTimeout(() => card.classList.add('card-visible'), 60 + i * 70);
+        });
+      }
+
+      function applyFilter(filter) {
+        const visibleCards = [];
+        galleryCards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-gallery-category');
+          const isExclusive = EXCLUSIVE_CATEGORIES.includes(cardCategory);
+          /* Exclusive categories (like Teaching) only ever show on their own tab —
+             never inside "All Photos" or any other filter. */
+          const show = isExclusive ? (filter === cardCategory) : (filter === 'all' || cardCategory === filter);
+
+          if (show) {
+            card.style.display = 'flex';
+            visibleCards.push(card);
+          } else {
+            card.classList.remove('card-visible');
+            card.style.display = 'none';
+          }
+        });
+        revealCards(visibleCards);
+      }
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          applyFilter(btn.getAttribute('data-gallery-filter'));
+        });
+      });
+
+      /* Initial page-load state: default "All Photos" view, excluding exclusive categories */
+      applyFilter('all');
+    });
+
+    /* ============================================================
+       LIGHTBOX MODAL TRIGGER
+       ============================================================ */
+    window.openLightbox = function (imgSrc, title, meta, description) {
+      const lightboxImg = document.getElementById('lightboxImg');
+      lightboxImg.classList.remove('img-loaded');
+      lightboxImg.src = imgSrc;
+      lightboxImg.onload = () => lightboxImg.classList.add('img-loaded');
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxMeta').textContent = meta;
+      document.getElementById('lightboxDesc').textContent = description;
+
+      const modal = document.getElementById('galleryLightboxModal');
+      if (modal) {
+        modal.classList.add('active');
+      }
+    };
+
+    /* ============================================================
+       NAVBAR SCROLL PROGRESS + MOBILE MENU
+       ============================================================ */
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+      navbar.style.setProperty('--scroll-progress', progress);
+    }, { passive: true });
+
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinksList = document.querySelector('.nav-links');
+
+    if (mobileToggle && navLinksList) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navLinksList.classList.toggle('open');
+        mobileToggle.setAttribute('aria-expanded', isOpen);
+        mobileToggle.textContent = isOpen ? '✕' : '☰';
+      });
+
+      // Close the menu when a nav link is clicked (mobile only)
+      navLinksList.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          navLinksList.classList.remove('open');
+          mobileToggle.textContent = '☰';
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

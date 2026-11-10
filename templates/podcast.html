@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcast & Conversations — Jeeva Ponnuchamy</title>
+  <meta name="description"
+    content="Listen to and watch in-depth discussions on cinema, screenwriting, storytelling craft, and filmmaking by Jeeva Ponnuchamy.">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/global-animation.css">
+  <link rel="stylesheet" href="/static/css/podcast.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+Tamil:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body data-page="podcast">
+
+  <div class="bg-glow"></div>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  {% include "partials/navbar.html" %}
+
+  <!-- ============================================================
+       PODCAST HERO
+       ============================================================ -->
+  <section class="podcast-hero">
+    <div class="container">
+      <div class="reveal-fade">
+        <span class="section-tag" data-en="Cinema & Dialogues" data-ta="திரை & உரையாடல்கள்">Cinema & Dialogues</span>
+
+        <h1 class="hero-title font-serif text-gradient" data-en="The Storyteller's Podcast" data-ta="திரைக் கதைசொல்லலின் உரையாடல்கள்">
+          The Storyteller's Podcast
+        </h1>
+
+        <p class="podcast-subtitle font-tamil" data-en="In-depth discussions on screenplay architecture, visual grammar, and cinema craft."
+          data-ta="திரைக்கதை அமைப்பு, காட்சி மொழி மற்றும் திரைப்படக் கலை குறித்த ஆழமான பதிவுகள்.">
+          In-depth discussions on screenplay architecture, visual grammar, and cinema craft.
+        </p>
+
+        <p class="section-desc" data-en="Explore recorded video conversations, academy masterclasses, and thought-provoking insights featuring writer and filmmaker Jeeva Ponnuchamy. Select any episode to watch."
+          data-ta="எழுத்தாளரும் திரைப்பட இயக்குநருமான ஜீவா பொன்னுச்சாமியின் நேரடி உரையாடல்கள், திரைப்படப் பட்டறைப் பதிவுகள் மற்றும் சிந்தனைகளைத் தேர்ந்தெடுத்துக் காணுங்கள்.">
+          Explore recorded video conversations, academy masterclasses, and thought-provoking insights featuring writer and filmmaker Jeeva Ponnuchamy. Select any episode to watch.
+        </p>
+      </div>
+
+      <!-- FILTER TABS -->
+      <div class="podcast-filter-bar reveal-up reveal-delay-1">
+        <button type="button" class="podcast-tab-btn active" data-podcast-filter="all">
+          <span data-en="All Episodes (12)" data-ta="அனைத்து உரையாடல்களும் (12)">All Episodes (12)</span>
+        </button>
+        <button type="button" class="podcast-tab-btn" data-podcast-filter="direction">
+          <span data-en="Directing & Vision" data-ta="இயக்கம் & காட்சி மொழி">Directing & Vision</span>
+        </button>
+        <button type="button" class="podcast-tab-btn" data-podcast-filter="screenplay">
+          <span data-en="Screenplay & Narrative" data-ta="திரைக்கதை & கதை சொல்லல்">Screenplay & Narrative</span>
+        </button>
+        <button type="button" class="podcast-tab-btn" data-podcast-filter="masterclass">
+          <span data-en="Masterclasses & Craft" data-ta="திரைப்படப் பட்டறை">Masterclasses & Craft</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PODCAST 3-COLUMN VIDEO GRID
+       ============================================================ -->
+  <section class="podcast-section">
+    <div class="container">
+      <div class="podcast-grid" id="podcastGrid">
+
+        <!-- EPISODE 01 -->
+        <article class="podcast-card reveal-up reveal-delay-1" data-category="direction" data-yt-id="j-HgMCENPq4">
+          <div class="podcast-thumb-wrap" data-watch-trigger="j-HgMCENPq4">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/j-HgMCENPq4/hqdefault.jpg" alt="Episode 1 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 01</span>
+            <span class="podcast-duration-badge">44:20</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Direction" data-ta="இயக்கம்">Direction</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="The Grammar of Visual Storytelling & Cinematic Vision"
+              data-ta="காட்சி மொழி & திரைப்படக் கலை இலக்கணம்">
+              The Grammar of Visual Storytelling & Cinematic Vision
+            </h2>
+
+            <p class="podcast-desc" data-en="A comprehensive breakdown of how cinematic framing, shot staging, visual subtext, and lighting establish profound emotional resonance with the viewer."
+              data-ta="காட்சி அமைப்பு, ஷாட்களின் நகர்வு, மறைமுகக் குறிப்புகள் மற்றும் ஒளி அமைப்பு எவ்வாறு பார்வையாளர்களுடன் உணர்வுபூர்வமான தொடர்பை ஏற்படுத்துகின்றன என்பதை விளக்கும் உரை.">
+              A comprehensive breakdown of how cinematic framing, shot staging, visual subtext, and lighting establish profound emotional resonance with the viewer.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="j-HgMCENPq4"
+                data-watch-title="The Grammar of Visual Storytelling & Cinematic Vision">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 02 -->
+        <article class="podcast-card reveal-up reveal-delay-2" data-category="screenplay" data-yt-id="egIg85yb4M4">
+          <div class="podcast-thumb-wrap" data-watch-trigger="egIg85yb4M4">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/egIg85yb4M4/hqdefault.jpg" alt="Episode 2 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 02</span>
+            <span class="podcast-duration-badge">39:15</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Screenplay" data-ta="திரைக்கதை">Screenplay</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="Screenplay Architecture: Constructing Organic Drama"
+              data-ta="திரைக்கதை அமைப்பு & நாடக உருவாக்கம்">
+              Screenplay Architecture: Constructing Organic Drama
+            </h2>
+
+            <p class="podcast-desc" data-en="Deconstructing scene progression, inciting incidents, and the subtle mechanics of pacing a cinematic story from hook to resolution without artificial tropes."
+              data-ta="காட்சிகளின் வளர்ச்சி, தூண்டுதல் தருணங்கள் மற்றும் தொடக்கம் முதல் உச்சக்கட்டம் வரை கதையின் வேகத்தை இயல்பாக வடிவமைக்கும் முறைகள் பற்றிய உரையாடல்.">
+              Deconstructing scene progression, inciting incidents, and the subtle mechanics of pacing a cinematic story from hook to resolution without artificial tropes.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="egIg85yb4M4"
+                data-watch-title="Screenplay Architecture: Constructing Organic Drama">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 03 -->
+        <article class="podcast-card reveal-up reveal-delay-3" data-category="screenplay" data-yt-id="PhNgHP73Jqw">
+          <div class="podcast-thumb-wrap" data-watch-trigger="PhNgHP73Jqw">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/PhNgHP73Jqw/hqdefault.jpg" alt="Episode 3 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 03</span>
+            <span class="podcast-duration-badge">48:10</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Writing" data-ta="எழுத்து">Writing</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="The Soul of Character Arcs & Authentic Dialogue"
+              data-ta="கதாபாத்திர வார்ப்பும் இயல்பான உரையாடல்களும்">
+              The Soul of Character Arcs & Authentic Dialogue
+            </h2>
+
+            <p class="podcast-desc" data-en="How to craft cinematic dialogue carrying natural regional dialect, emotional vulnerability, and subtextual wit without ever sounding didactic or artificial."
+              data-ta="நாடகத்தன்மை இல்லாமல் வட்டார வழக்கு, கதாபாத்திரத்தின் ஆழமான பலவீனங்கள் மற்றும் தாள நயத்துடன் உரையாடல்களை உருவாக்கும் கலை.">
+              How to craft cinematic dialogue carrying natural regional dialect, emotional vulnerability, and subtextual wit without ever sounding didactic or artificial.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="PhNgHP73Jqw"
+                data-watch-title="The Soul of Character Arcs & Authentic Dialogue">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 04 -->
+        <article class="podcast-card reveal-up reveal-delay-1" data-category="masterclass" data-yt-id="zZvRrGuzgPQ">
+          <div class="podcast-thumb-wrap" data-watch-trigger="zZvRrGuzgPQ">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/zZvRrGuzgPQ/hqdefault.jpg" alt="Episode 4 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 04</span>
+            <span class="podcast-duration-badge">52:45</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Film Editing" data-ta="படத்தொகுப்பு">Film Editing</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="The Invisible Rhythm: The Art of Film Editing"
+              data-ta="படத்தொகுப்பு: கண்ணுக்குத் தெரியாத திரை தாளம்">
+              The Invisible Rhythm: The Art of Film Editing
+            </h2>
+
+            <p class="podcast-desc" data-en="Examining montage theory, shot duration, emotional transitions, and how professional editors sculpt the unseen heartbeat and pacing of cinema."
+              data-ta="காட்சித் தொகுப்புக் கோட்பாடுகள், ஷாட்களின் கால அளவு மற்றும் திரைப்படத்தின் உணர்வுபூர்வமான துடிப்பை படத்தொகுப்பாளர் வடிவமைக்கும் விதம் பற்றிய நுணுக்கங்கள்.">
+              Examining montage theory, shot duration, emotional transitions, and how professional editors sculpt the unseen heartbeat and pacing of cinema.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="zZvRrGuzgPQ"
+                data-watch-title="The Invisible Rhythm: The Art of Film Editing">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 05 -->
+        <article class="podcast-card reveal-up reveal-delay-2" data-category="masterclass" data-yt-id="inANpNi6kLc">
+          <div class="podcast-thumb-wrap" data-watch-trigger="inANpNi6kLc">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/inANpNi6kLc/hqdefault.jpg" alt="Episode 5 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 05</span>
+            <span class="podcast-duration-badge">36:30</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Masterclass" data-ta="பட்டறை">Masterclass</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="Nizhal Pathiyam: Directing Actors & Staging Scenes"
+              data-ta="நடிகர்களை வழிநடத்துதல் & காட்சி அரங்கேற்றம்">
+              Nizhal Pathiyam: Directing Actors & Staging Scenes
+            </h2>
+
+            <p class="podcast-desc" data-en="Practical masterclass insights from Nizhal Pathiyam Film Academy on actor psychology, rehearsal methods, camera blocking, and evoking unscripted realism."
+              data-ta="நிழல் பதியம் திரைப்படப் பட்டறையிலிருந்து நடிகர் உளவியல், ஒத்திகைகள், கேமரா பிளாக்கிங் மற்றும் இயல்பான நடிப்பைப் பெறுவதற்கான நேரடிப் பகிர்வு.">
+              Practical masterclass insights from Nizhal Pathiyam Film Academy on actor psychology, rehearsal methods, camera blocking, and evoking unscripted realism.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="inANpNi6kLc"
+                data-watch-title="Nizhal Pathiyam: Directing Actors & Staging Scenes">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 06 -->
+        <article class="podcast-card reveal-up reveal-delay-3" data-category="direction" data-yt-id="gl07CLm_P5s">
+          <div class="podcast-thumb-wrap" data-watch-trigger="gl07CLm_P5s">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/gl07CLm_P5s/hqdefault.jpg" alt="Episode 6 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 06</span>
+            <span class="podcast-duration-badge">41:50</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Literature" data-ta="இலக்கியம்">Literature</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="Tamil Literature as the Bedrock of Cinema"
+              data-ta="தமிழ் இலக்கியமும் சமகாலத் திரையுலகமும்">
+              Tamil Literature as the Bedrock of Cinema
+            </h2>
+
+            <p class="podcast-desc" data-en="Exploring how classical and contemporary Tamil literary traditions provide unmatched depth, cultural texture, and poetic motifs to modern cinematic storytelling."
+              data-ta="செவ்வியல் மற்றும் நவீன தமிழ் இலக்கியங்கள் எவ்வாறு திரைக்கதையின் ஆழம், கலாச்சார செழுமை மற்றும் படிமங்களுக்கு உறுதியான அடித்தளமாக அமைகின்றன.">
+              Exploring how classical and contemporary Tamil literary traditions provide unmatched depth, cultural texture, and poetic motifs to modern cinematic storytelling.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="gl07CLm_P5s"
+                data-watch-title="Tamil Literature as the Bedrock of Cinema">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 07 -->
+        <article class="podcast-card reveal-up reveal-delay-1" data-category="direction" data-yt-id="TpszDRnEsYw">
+          <div class="podcast-thumb-wrap" data-watch-trigger="TpszDRnEsYw">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/TpszDRnEsYw/hqdefault.jpg" alt="Episode 7 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 07</span>
+            <span class="podcast-duration-badge">55:10</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Production" data-ta="உருவாக்கம்">Production</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="From Page to Premiere: The Complete Filmmaking Pipeline"
+              data-ta="காகிதத்திலிருந்து வெள்ளித்திரை வரை">
+              From Page to Premiere: The Complete Filmmaking Pipeline
+            </h2>
+
+            <p class="podcast-desc" data-en="Navigating pre-production rigour, script rewrites, recce expeditions, set chemistry, and protecting creative integrity amidst production constraints."
+              data-ta="முன் தயாரிப்பு திட்டமிடல், திரைக்கதை திருத்தங்கள், படப்பிடிப்பு தள சூழல் மற்றும் சவால்களுக்கிடையே கலை சமரசம் இல்லாத முழுமையான திரைப் பயணம்.">
+              Navigating pre-production rigour, script rewrites, recce expeditions, set chemistry, and protecting creative integrity amidst production constraints.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="TpszDRnEsYw"
+                data-watch-title="From Page to Premiere: The Complete Filmmaking Pipeline">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 08 -->
+        <article class="podcast-card reveal-up reveal-delay-2" data-category="screenplay" data-yt-id="Nm5fGpUkvW4">
+          <div class="podcast-thumb-wrap" data-watch-trigger="Nm5fGpUkvW4">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/Nm5fGpUkvW4/hqdefault.jpg" alt="Episode 8 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 08</span>
+            <span class="podcast-duration-badge">43:25</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Philosophy" data-ta="தத்துவம்">Philosophy</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="Philosophy, Culture & Social Lens in Cinema"
+              data-ta="திரைப்படங்களில் சமூகப் பார்வையும் தத்துவமும்">
+              Philosophy, Culture & Social Lens in Cinema
+            </h2>
+
+            <p class="podcast-desc" data-en="Analyzing cinema not merely as fleeting entertainment, but as an influential cultural mirror documenting sociological transitions and evoking human empathy."
+              data-ta="சினிமாவை வெறும் பொழுதுபோக்காக மட்டுமின்றி, சமூக மாற்றங்கள், பண்பாட்டு அடையாளங்கள் மற்றும் மனித நேயத்தைப் பிரதிபலிக்கும் கண்ணாடியாக நோக்குதல்.">
+              Analyzing cinema not merely as fleeting entertainment, but as an influential cultural mirror documenting sociological transitions and evoking human empathy.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="Nm5fGpUkvW4"
+                data-watch-title="Philosophy, Culture & Social Lens in Cinema">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 09 -->
+        <article class="podcast-card reveal-up reveal-delay-3" data-category="direction" data-yt-id="tgc9QklDXx8">
+          <div class="podcast-thumb-wrap" data-watch-trigger="tgc9QklDXx8">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/tgc9QklDXx8/hqdefault.jpg" alt="Episode 9 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 09</span>
+            <span class="podcast-duration-badge">38:40</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Cinematography" data-ta="ஒளிப்பதிவு">Cinematography</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="Behind the Lens: Framing Emotion & Lighting Psychology"
+              data-ta="ஒளிப்பதிவு & உணர்வுசார் காட்சிப் பதிவுகள்">
+              Behind the Lens: Framing Emotion & Lighting Psychology
+            </h2>
+
+            <p class="podcast-desc" data-en="Understanding color palettes, lens focal lengths, chiaroscuro shadow play, and how visual tonality silently communicates the inner state of characters."
+              data-ta="வண்ணத் தேர்வுகள், லென்ஸ் குவிய தூரங்கள், நிழல்களின் பயன்பாடு மற்றும் காட்சித் தரம் எவ்வாறு கதாபாத்திரத்தின் அக உலகத்தை பார்வையாளருக்குக் கடத்துகிறது.">
+              Understanding color palettes, lens focal lengths, chiaroscuro shadow play, and how visual tonality silently communicates the inner state of characters.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="tgc9QklDXx8"
+                data-watch-title="Behind the Lens: Framing Emotion & Lighting Psychology">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 10 -->
+        <article class="podcast-card reveal-up reveal-delay-1" data-category="masterclass" data-yt-id="eoLfiPDQPco">
+          <div class="podcast-thumb-wrap" data-watch-trigger="eoLfiPDQPco">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/eoLfiPDQPco/hqdefault.jpg" alt="Episode 10 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514306191717-452ec28c7814?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 10</span>
+            <span class="podcast-duration-badge">47:05</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Indie Cinema" data-ta="சுயாதீனம்">Indie Cinema</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="Independent Filmmaking & Navigating Creative Freedom"
+              data-ta="சுயாதீன திரைப்பட உருவாக்கம் & கலைச் சுதந்திரம்">
+              Independent Filmmaking & Navigating Creative Freedom
+            </h2>
+
+            <p class="podcast-desc" data-en="Why uncompromising personal storytelling matters, overcoming market distribution hurdles, and fostering a unique visual language without mainstream conformity."
+              data-ta="சுயாதீன கதைசொல்லலின் அவசியம், வணிக விநியோகத் தடைகளைத் தாண்டுதல் மற்றும் கலைரீதியான தனித்துவத்தைப் பேணிக்காக்கும் வழிமுறைகள்.">
+              Why uncompromising personal storytelling matters, overcoming market distribution hurdles, and fostering a unique visual language without mainstream conformity.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="eoLfiPDQPco"
+                data-watch-title="Independent Filmmaking & Navigating Creative Freedom">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 11 -->
+        <article class="podcast-card reveal-up reveal-delay-2" data-category="masterclass" data-yt-id="fNzx3PiTUlA">
+          <div class="podcast-thumb-wrap" data-watch-trigger="fNzx3PiTUlA">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/fNzx3PiTUlA/hqdefault.jpg" alt="Episode 11 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 11</span>
+            <span class="podcast-duration-badge">35:20</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Sound Design" data-ta="ஒலி வடிவமைப்பு">Sound Design</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="Sound, Silence & Visual Emotion in Cinematic Language"
+              data-ta="ஒலியும் மௌனமும்: காட்சியின் உணர்வுபூர்வ மொழி">
+              Sound, Silence & Visual Emotion in Cinematic Language
+            </h2>
+
+            <p class="podcast-desc" data-en="The psychological power of auditory landscape, spatial sound design, thematic motifs, and the deliberate use of silence to elevate dramatic tension."
+              data-ta="சூழல் ஒலி வடிவமைப்பு, உணர்வுபூர்வமான இசைப் பின்னணி மற்றும் காட்சிகளின் தீவிரத்தை உச்சநிலைக்குக் கொண்டுசெல்ல மௌனத்தைப் பயன்படுத்தும் கலை.">
+              The psychological power of auditory landscape, spatial sound design, thematic motifs, and the deliberate use of silence to elevate dramatic tension.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="fNzx3PiTUlA"
+                data-watch-title="Sound, Silence & Visual Emotion in Cinematic Language">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- EPISODE 12 -->
+        <article class="podcast-card reveal-up reveal-delay-3" data-category="direction" data-yt-id="fRkTWds3OSw">
+          <div class="podcast-thumb-wrap" data-watch-trigger="fRkTWds3OSw">
+            <img class="podcast-thumb" src="https://img.youtube.com/vi/fRkTWds3OSw/hqdefault.jpg" alt="Episode 12 Thumbnail" loading="lazy"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?w=640&h=360&q=80&fit=crop';">
+            <div class="podcast-thumb-overlay">
+              <div class="podcast-play-icon">▶</div>
+            </div>
+            <span class="podcast-ep-badge">EP 12</span>
+            <span class="podcast-duration-badge">58:30</span>
+          </div>
+
+          <div class="podcast-body">
+            <div class="podcast-meta-row">
+              <span class="podcast-cat-tag" data-en="Special Interview" data-ta="சிறப்புப் பதிவு">Special Interview</span>
+              <span class="podcast-date-tag">YouTube • 2024</span>
+            </div>
+
+            <h2 class="podcast-title font-serif" data-en="In Conversation: Reflecting on 17+ Years of Storytelling"
+              data-ta="சிறப்பு உரையாடல்: 17 ஆண்டுகால திரைப் பயணம்">
+              In Conversation: Reflecting on 17+ Years of Storytelling
+            </h2>
+
+            <p class="podcast-desc" data-en="An intimate retrospective journey exploring M.G.R. Film Institute foundations, National Film Award recognitions, lessons learned, and future creative frontiers."
+              data-ta="எம்.ஜி.ஆர் அரசு திரைப்படக் கல்லூரி நாட்கள், தேசிய விருது அங்கீகாரம், கடந்த 17 ஆண்டுகால திரைப் பயண அனுபவங்கள் மற்றும் எதிர்காலத் திட்டங்களைப் பகிரும் சிறப்புப் பதிவு.">
+              An intimate retrospective journey exploring M.G.R. Film Institute foundations, National Film Award recognitions, lessons learned, and future creative frontiers.
+            </p>
+
+            <div class="podcast-footer">
+              <div class="podcast-host">
+                <span class="podcast-host-dot"></span>
+                <span>Jeeva Ponnuchamy</span>
+              </div>
+              <button class="podcast-watch-btn" type="button" data-watch-id="fRkTWds3OSw"
+                data-watch-title="In Conversation: Reflecting on 17+ Years of Storytelling">
+                <span class="btn-play-icon">▶</span>
+                <span data-en="Watch Episode" data-ta="காணொளியைக் காண்க">Watch Episode</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       IN-PAGE THEATER MODAL PLAYER
+       ============================================================ -->
+  <div class="podcast-modal" id="podcastModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="podcast-modal-content">
+      <div class="podcast-modal-header">
+        <h3 class="podcast-modal-title" id="podcastModalTitle">Watching Episode</h3>
+        <button class="podcast-modal-close" id="podcastModalClose" aria-label="Close video player">✕</button>
+      </div>
+
+      <div class="podcast-modal-frame-wrap">
+        <iframe id="podcastModalIframe" src="" title="Podcast Episode Player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="podcast-modal-actions">
+        <a class="podcast-modal-action-link" id="podcastModalFullLink" href="/video?v=j-HgMCENPq4&cat=podcast">
+          <span data-en="Open Dedicated Video Page →" data-ta="முழு வீடியோ பக்கத்தில் காண்க →">Open Dedicated Video Page →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  {% include "partials/footer.html" %}
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="/static/js/translations.js"></script>
+  <script src="/static/js/lang.js"></script>
+  <script src="/static/js/scroll-reveal.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Mobile menu toggle
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener("click", () => {
+          const isOpen = navLinks.classList.toggle("open");
+          mobileToggle.setAttribute("aria-expanded", isOpen);
+          mobileToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        navLinks.querySelectorAll("a").forEach(link => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+            mobileToggle.textContent = "☰";
+          });
+        });
+      }
+
+      // 2. Navbar scroll progress
+      const navbar = document.querySelector(".navbar");
+      window.addEventListener("scroll", () => {
+        if (!navbar) return;
+        navbar.classList.toggle("scrolled", window.scrollY > 30);
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+        navbar.style.setProperty("--scroll-progress", progress);
+      }, { passive: true });
+
+      // 3. Category Filter
+      const filterBtns = document.querySelectorAll("[data-podcast-filter]");
+      const cards = document.querySelectorAll(".podcast-card");
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-podcast-filter");
+
+          cards.forEach(card => {
+            const cardCat = card.getAttribute("data-category");
+            const match = (filter === "all" || cardCat === filter);
+
+            if (match) {
+              card.style.display = "flex";
+              // Re-check reveal
+              if (window.observeRevealElements) {
+                window.observeRevealElements(card);
+              }
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // 4. Modal Video Player
+      const modal = document.getElementById("podcastModal");
+      const modalIframe = document.getElementById("podcastModalIframe");
+      const modalTitle = document.getElementById("podcastModalTitle");
+      const modalClose = document.getElementById("podcastModalClose");
+      const modalFullLink = document.getElementById("podcastModalFullLink");
+
+      function openModal(videoId, title) {
+        if (!modal || !modalIframe) return;
+        modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        if (modalTitle) modalTitle.textContent = title || "Podcast Episode";
+        if (modalFullLink) modalFullLink.href = `/video?v=${videoId}&cat=podcast`;
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        if (!modal || !modalIframe) return;
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        modalIframe.src = "";
+        document.body.style.overflow = "";
+      }
+
+      // Attach click handlers to Watch Buttons & Thumbnails
+      document.querySelectorAll(".podcast-watch-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const videoId = btn.getAttribute("data-watch-id");
+          const title = btn.getAttribute("data-watch-title");
+          openModal(videoId, title);
+        });
+      });
+
+      document.querySelectorAll(".podcast-thumb-wrap").forEach(wrap => {
+        wrap.addEventListener("click", () => {
+          const videoId = wrap.getAttribute("data-watch-trigger");
+          const card = wrap.closest(".podcast-card");
+          const title = card ? card.querySelector(".podcast-title")?.textContent : "Podcast Episode";
+          openModal(videoId, title);
+        });
+      });
+
+      if (modalClose) {
+        modalClose.addEventListener("click", closeModal);
+      }
+
+      if (modal) {
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

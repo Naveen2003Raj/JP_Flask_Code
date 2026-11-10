@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Article — Jeeva Ponnuchamy</title>
+  <meta name="description" id="pageDesc" content="Cinema essays and articles by Jeeva Ponnuchamy.">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/global-animation.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+Tamil:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <script>document.documentElement.classList.add("js-typewrite-ready");</script>
+  <style>
+    /* ARTICLE DETAIL PAGE — Amazon-style: image left / details right, full body below */
+    .article-hero {
+      padding-top: 8rem;
+      padding-bottom: 3rem;
+    }
+
+    .article-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: var(--transition);
+    }
+
+    .article-back-link:hover {
+      color: var(--text-main);
+      gap: 0.6rem;
+    }
+
+    .article-detail-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 420px) 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .article-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* LEFT: cover visual (sticky, product-image style) */
+    .article-cover-col {
+      position: sticky;
+      top: 7rem;
+    }
+
+    @media (max-width: 860px) {
+      .article-cover-col {
+        position: static;
+      }
+    }
+
+    .article-visual {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.07) 0%, transparent 55%),
+        linear-gradient(155deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 2px, transparent 2px, transparent 14px);
+    }
+
+    .article-visual-icon {
+      font-size: 4rem;
+      opacity: 0.85;
+      filter: grayscale(15%);
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-visual-tag {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      right: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      z-index: 1;
+    }
+
+    .article-share-note {
+      margin-top: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* RIGHT: title / meta / description */
+    .article-info-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .article-category-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-full);
+    }
+
+    .article-date-badge {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    .article-detail-title {
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+      color: var(--text-main);
+    }
+
+    .article-detail-desc {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      border-left: 3px solid var(--border-accent, var(--accent));
+      margin-bottom: 2rem;
+    }
+
+    .article-jump-btn {
+      margin-top: 0.5rem;
+    }
+
+    /* FULL ARTICLE BODY */
+    .article-body-section {
+      padding: 1rem 0 6rem 0;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    .article-body-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding-top: 3.5rem;
+    }
+
+    .article-body-heading {
+      margin-bottom: 2rem;
+    }
+
+    .article-body-content p {
+      font-size: 1.02rem;
+      line-height: 2;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .article-body-content p:first-of-type::first-letter {
+      font-family: var(--font-serif, 'Cormorant Garamond', serif);
+      font-size: 2.6rem;
+      color: var(--accent-light, var(--accent));
+      line-height: 0.8;
+      padding-right: 0.15rem;
+    }
+
+    .article-empty-note {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      padding: 2rem;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .article-not-found {
+      padding: 10rem 0 8rem 0;
+      text-align: center;
+    }
+    /* POEM */
+.article-body-content[data-type="poem"] {
+  text-align: center;
+}
+
+.article-body-content[data-type="poem"] p {
+  color: #ff5555 !important;
+  border-left: 4px solid #ff5555;
+}
+
+.article-body-content[data-type="poem"] p:first-of-type::first-letter {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+  padding-right: 0;
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- Ambient Glow Overlay -->
+  <div class="bg-glow"></div>
+
+  <!-- NAVBAR -->
+ {% include "partials/navbar.html" %}
+
+  <main id="articleFoundState" style="display: none;">
+
+    <section class="article-hero">
+
+      <div class="container">
+
+        <div class="article-back-link reveal-left" data-typewrite-group data-i18n-section="articlePage">
+          <a href="/works?category=articles">
+            <span data-typewrite data-en="← Back to Articles" data-ta="← கட்டுரைகளுக்குத் திரும்ப">← Back to
+              Articles</span>
+          </a>
+        </div>
+
+        <div class="article-detail-grid">
+
+          <!-- LEFT -->
+          <div class="article-cover-col reveal-left reveal-delay-1">
+
+            <div class="article-visual">
+
+              <img id="articleVisualImg" alt="Press coverage article" loading="lazy" style="
+                width:100%;
+                height:100%;
+                object-fit:cover;
+                position:relative;
+                z-index:1;
+              " onerror="
+                this.onerror=null;
+                this.src='https://placehold.co/800x1000/1a1a1a/cfcabb?text=Cinema+Essay';
+              ">
+
+              <span class="article-visual-tag reveal-fade" id="articleVisualTag"></span>
+
+            </div>
+
+            <p class="article-share-note reveal-left reveal-delay-2" data-typewrite-group>
+              <span data-typewrite data-en="Cinema essay by Jeeva Ponnuchamy"
+                data-ta="ஜீவா பொன்னுச்சாமியின் சினிமா கட்டுரை">Cinema essay by Jeeva Ponnuchamy</span>
+            </p>
+
+          </div>
+
+
+          <!-- RIGHT -->
+          <div class="article-info-col">
+
+            <div class="article-info-badge-row reveal-left" data-typewrite-group data-i18n-section="articlePage">
+
+              <span class="article-category-badge" id="articleCategoryBadge"></span>
+
+              <span class="article-date-badge" id="articleDateBadge"></span>
+
+            </div>
+
+
+            <h1 class="article-detail-title font-tamil reveal-left reveal-delay-1" id="articleTitle">
+              Loading…
+            </h1>
+
+
+            <p class="article-detail-desc font-tamil reveal-left reveal-delay-2" id="articleDesc"></p>
+
+
+            <div class="reveal-left reveal-delay-3" data-typewrite-group data-i18n-section="articlePage">
+
+              <a href="#articleBody" class="btn btn-primary article-jump-btn">
+                <span data-typewrite data-en="Read Full Article ↓" data-ta="முழு கட்டுரையைப் படிக்க ↓">Read Full Article
+                  ↓</span>
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FULL ARTICLE BODY -->
+
+    <section class="article-body-section" id="articleBody">
+
+      <div class="container">
+
+        <div class="article-body-wrap">
+
+          <div class="article-body-heading reveal-left" data-typewrite-group data-i18n-section="articlePage">
+
+            <span class="section-tag" data-typewrite data-key="fullArticle"></span>
+
+          </div>
+
+
+          <div class="article-body-content font-tamil" id="articleContent"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ARTICLE NOT FOUND STATE -->
+  <section class="article-not-found" id="articleNotFoundState">
+
+    <div class="container">
+
+      <div class="reveal-left" data-typewrite-group data-i18n-section="articlePage">
+
+        <span class="section-tag" data-typewrite data-key="notFound"></span>
+
+        <h2 class="section-heading" data-typewrite data-key="articleNotFound"></h2>
+
+      </div>
+
+
+      <div class="reveal-left reveal-delay-2" data-typewrite-group data-i18n-section="articlePage">
+
+        <a href="/works?category=articles" class="btn btn-primary">
+
+          <span data-typewrite data-key="viewAllArticles"></span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+ {% include "partials/footer.html" %}
+
+ <script src="/static/js/translations.js"></script>
+<script src="/static/js/lang.js"></script>
+<script src="/static/js/section-typing.js"></script>
+<script src="/static/js/scroll-reveal.js"></script>
+
+  <script>
+  const renderers = {
+    article(d, el) {
+      (d.body?.text || "")
+        .split(/\n\s*\n/)
+        .filter(p => p.trim())
+        .forEach(text => {
+          const p = document.createElement("p");
+          p.textContent = text;
+          el.appendChild(p);
+        });
+    },
+        poem(d, el) {
+      (d.body?.text || "")
+        .split(/\n\s*\n/)
+        .filter(s => s.trim())
+        .forEach(stanza => {
+          const p = document.createElement("p");
+          p.textContent = stanza;
+          el.appendChild(p);
+        });
+    }
+  };
+
+  function renderBody(d, el) {
+    const render = renderers[d.type] || renderers.article;
+    render(d, el);
+  }
+
+  async function loadArticle(lang) {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    let article = null;
+
+    try {
+      const res = await fetch(
+        `/api/contents/${encodeURIComponent(id)}?lang=${lang}`
+      );
+      if (res.ok) {
+        const d = await res.json();
+        article = {
+          id: d.slug,
+          type: d.type,
+          title: d.title,
+          description: d.excerpt,
+          publishedDate: d.displayDate,
+          body: d.body
+        };
+      }
+      const preview = params.get("preview");
+if (preview) article.type = preview;
+    } catch (err) {
+      console.error(err);
+    }
+
+    const foundState = document.getElementById("articleFoundState");
+    const notFoundState = document.getElementById("articleNotFoundState");
+
+    /* ARTICLE NOT FOUND */
+    if (!article) {
+      foundState.style.display = "none";
+      notFoundState.style.display = "block";
+      return;
+    }
+
+    /* SHOW ARTICLE */
+    notFoundState.style.display = "none";
+    foundState.style.display = "block";
+
+    /* PAGE META */
+    document.getElementById("pageTitle").textContent =
+      article.title + " — Jeeva Ponnuchamy";
+
+    if (article.description) {
+      document
+        .getElementById("pageDesc")
+        .setAttribute("content", article.description);
+    }
+
+    /* TITLE */
+    document.getElementById("articleTitle").textContent = article.title;
+
+    /* CATEGORY */
+    const category = article.category || "Cinema Essay";
+    document.getElementById("articleCategoryBadge").textContent = category;
+    document.getElementById("articleVisualTag").textContent = category;
+
+    /* IMAGE */
+    const visualImg = document.getElementById("articleVisualImg");
+    const fallbackLabel = encodeURIComponent(
+      article.category || article.title || "Cinema Essay"
+    );
+    const fallbackSrc =
+      `https://placehold.co/800x1000/1a1a1a/cfcabb?text=${fallbackLabel}`;
+    visualImg.src = article.image || fallbackSrc;
+
+    /* DATE */
+    const dateEl = document.getElementById("articleDateBadge");
+    if (article.publishedDate) {
+      dateEl.textContent = article.publishedDate;
+      dateEl.style.display = "";
+    } else {
+      dateEl.style.display = "none";
+    }
+
+    /* DESCRIPTION */
+    const descEl = document.getElementById("articleDesc");
+    if (article.description) {
+      descEl.textContent = article.description;
+      descEl.style.display = "";
+    } else {
+      descEl.style.display = "none";
+    }
+
+    /* BODY (type-based) */
+    const contentEl = document.getElementById("articleContent");
+    contentEl.innerHTML = "";
+    contentEl.dataset.type = article.type;
+
+    renderBody(article, contentEl);
+
+    if (contentEl.children.length === 0) {
+      const note = document.createElement("div");
+      note.className = "article-empty-note reveal-left";
+      note.textContent = "The full text of this article will be added soon.";
+      contentEl.appendChild(note);
+    } else {
+      [...contentEl.children].forEach((child, index) => {
+        child.classList.add(index % 2 === 1 ? "reveal-right" : "reveal-left");
+        child.classList.add(`reveal-delay-${(index % 6) + 1}`);
+      });
+    }
+
+    if (typeof window.observeRevealElements === "function") {
+      window.observeRevealElements();
+    }
+  }
+
+  document.addEventListener("languageChanged", e => {
+    loadArticle(e.detail.language);
+  });
+
+  const mobileToggle = document.querySelector('.mobile-toggle');
+  const navLinksList = document.querySelector('.nav-links');
+
+  if (mobileToggle && navLinksList) {
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinksList.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', isOpen);
+      mobileToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    navLinksList.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinksList.classList.remove('open');
+        mobileToggle.textContent = '☰';
+      });
+    });
+  }
+</script>
+</body>
+
+</html>

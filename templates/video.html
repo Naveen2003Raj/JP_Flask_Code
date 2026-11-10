@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video — Jeeva Ponnuchamy</title>
+  <meta name="description" content="Watch video appearances and interviews featuring Jeeva Ponnuchamy.">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/video.css">
+  <link rel="stylesheet" href="/static/css/global-animation.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+Tamil:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- NAVBAR -->
+{% include "partials/navbar.html" %}
+
+  <!-- VIDEO HERO: title + short description -->
+  <section class="video-hero">
+    <div class="container">
+      <div class="video-header-inner reveal-fade">
+        <a class="video-back-link" id="videoBackLink" href="/works?category=interviews">
+          <span data-en="← Back to Works" data-ta="← படைப்புகளுக்குத் திரும்ப">← Back to Works</span>
+        </a>
+
+        <div class="video-meta-row">
+          <span class="video-badge" data-en="YouTube" data-ta="யூடியூப்">YouTube</span>
+          <span class="video-channel" id="videoChannel">Jeeva Ponnuchamy</span>
+        </div>
+
+        <h1 class="video-title font-serif text-gradient" id="videoTitle">Loading video…</h1>
+        <p class="video-desc" id="videoDesc" data-en="A recorded conversation and appearance featuring Jeeva Ponnuchamy, shared publicly on YouTube." data-ta="யூடியூபில் பகிரப்பட்ட ஜீவா பொன்னுச்சாமியின் நேரடி உரையாடல் / தோற்றம்.">A recorded conversation and appearance featuring Jeeva Ponnuchamy, shared publicly on YouTube.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO: iframe -->
+  <section class="video-section">
+    <div class="container">
+      <div class="video-frame-wrap reveal-up">
+        <iframe id="videoFrame" src="" title="Video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+ 
+{% include "partials/footer.html" %}
+
+  <script src="/static/js/translations.js"></script>
+<script src="/static/js/lang.js"></script>
+<script src="/static/js/section-typing.js"></script>
+<script src="/static/js/scroll-reveal.js"></script>
+  <script>
+    // Optional per-video short descriptions (Tamil / English). Add more entries here as needed —
+    // any video ID not listed falls back to the generic description already in the HTML above.
+    const VIDEO_DESCRIPTIONS = {
+      'fRkTWds3OSw': {
+        en: 'A recorded conversation and appearance featuring Jeeva Ponnuchamy, shared publicly on YouTube.',
+        ta: 'யூடியூபில் பகிரப்பட்ட ஜீவா பொன்னுச்சாமியின் நேரடி உரையாடல் / தோற்றம்.'
+      },
+      '1AXT9dqZPw4': {
+        en: 'A recorded conversation and appearance featuring Jeeva Ponnuchamy, shared publicly on YouTube.',
+        ta: 'யூடியூபில் பகிரப்பட்ட ஜீவா பொன்னுச்சாமியின் நேரடி உரையாடல் / தோற்றம்.'
+      },
+      's6_1jPCgiNc': {
+        en: 'A recorded conversation and appearance featuring Jeeva Ponnuchamy, shared publicly on YouTube.',
+        ta: 'யூடியூபில் பகிரப்பட்ட ஜீவா பொன்னுச்சாமியின் நேரடி உரையாடல் / தோற்றம்.'
+      },
+      'L7m2BV5QzjM': {
+        en: 'A recorded conversation and appearance featuring Jeeva Ponnuchamy, shared publicly on YouTube.',
+        ta: 'யூடியூபில் பகிரப்பட்ட ஜீவா பொன்னுச்சாமியின் நேரடி உரையாடல் / தோற்றம்.'
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const videoId = params.get('v');
+      const category = params.get('cat') || 'interviews';
+
+      const backLink = document.getElementById('videoBackLink');
+      if (backLink) {
+        if (category === 'podcast') {
+          backLink.href = 'podcast.html';
+          const backSpan = backLink.querySelector('span');
+          if (backSpan) {
+            backSpan.setAttribute('data-en', '← Back to Podcast');
+            backSpan.setAttribute('data-ta', '← பாட்காஸ்ட்டிற்குத் திரும்ப');
+            const activeLang = document.querySelector('.lang-option.active');
+            backSpan.textContent = (activeLang && activeLang.id === 'tamilBtn') ? '← பாட்காஸ்ட்டிற்குத் திரும்ப' : '← Back to Podcast';
+          }
+        } else {
+          backLink.href = `/works?category=${encodeURIComponent(category)}`;
+        }
+      }
+
+      const titleEl = document.getElementById('videoTitle');
+      const channelEl = document.getElementById('videoChannel');
+      const descEl = document.getElementById('videoDesc');
+      const frame = document.getElementById('videoFrame');
+
+      if (!videoId) {
+        titleEl.textContent = 'Video not found';
+        descEl.textContent = 'No video was specified. Please go back and choose a video from the Works page.';
+        return;
+      }
+
+      // Description: prefer the local map, otherwise keep the generic fallback already in the HTML.
+      const desc = VIDEO_DESCRIPTIONS[videoId];
+      if (desc) {
+        descEl.setAttribute('data-en', desc.en);
+        descEl.setAttribute('data-ta', desc.ta);
+        const activeLang = document.querySelector('.lang-option.active');
+        descEl.textContent = (activeLang && activeLang.getAttribute('data-lang') === 'ta') ? desc.ta : desc.en;
+      }
+
+      // Load the player
+      frame.src = `https://www.youtube.com/embed/${videoId}`;
+      document.title = `Video — Jeeva Ponnuchamy`;
+
+      // Fetch the real title (and channel name) via YouTube's public oEmbed endpoint
+      fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`)
+        .then(res => res.ok ? res.json() : Promise.reject())
+        .then(data => {
+          if (data.title) {
+            titleEl.textContent = data.title;
+            document.title = `${data.title} — Jeeva Ponnuchamy`;
+          }
+          if (data.author_name) channelEl.textContent = data.author_name;
+        })
+        .catch(() => {
+          titleEl.textContent = 'Watch the video below';
+        });
+    });
+     const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+  navbar.style.setProperty('--scroll-progress', progress);
+}, { passive: true });
+const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinksList = document.querySelector('.nav-links');
+
+    if (mobileToggle && navLinksList) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navLinksList.classList.toggle('open');
+        mobileToggle.setAttribute('aria-expanded', isOpen);
+        mobileToggle.textContent = isOpen ? '✕' : '☰';
+      });
+
+      // Close the menu when a nav link is clicked (mobile only)
+      navLinksList.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinksList.classList.remove('open');
+          mobileToggle.textContent = '☰';
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

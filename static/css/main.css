@@ -1,0 +1,28 @@
+/* ============================================================
+   MAIN ENTRY POINT
+   ============================================================ */
+
+@import url('./variables.css');
+@import url('./common.css');
+@import url('./navbar.css');
+@import url('./hero.css');
+@import url('./about.css');
+@import url('./journey.css');
+@import url('./news.css');
+@import url('./archivement.css');
+@import url('./work.css');
+@import url('./testimonals.css');
+@import url('./lang-toggle.css');
+@import url('./cta-section.css');
+@import url('./responsive.css');
+@import url('./misc.css');
+@import url('./footer.css');
+@import url('./placeholder.css');
+@import url('./feature.css');
+@import url('./latest.css');
+@import url('./video.css');
+@import url('./podcast.css');
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
